@@ -19,7 +19,7 @@
     <button @click.prevent="uploadTask">Create</button>
   </div>
   <div>
-    <h3 v-if="errorBool">{{ emptyString }}</h3>
+    <h3 v-if="error">{{ errorMsg }}</h3>
   </div>
 </template>
 
@@ -32,15 +32,15 @@ const emit = defineEmits(["childNewTask"]);
 
 let taskTitle = ref("");
 let taskDesc = ref("");
-let errorBool = ref(false);
-const emptyString = ref("");
+let error = ref(false);
+const errorMsg = ref("");
 
 function uploadTask() {
   if (taskTitle.value === "") {
-    errorBool.value = true;
-    emptyString.value = "Title is required.";
+    error.value = true;
+    errorMsg.value = "Title is required.";
     setTimeout(() => {
-      errorBool.value = false;
+      error.value = false;
     }, 1000);
   } else {
     emit("childNewTask", taskTitle.value, taskDesc.value);
