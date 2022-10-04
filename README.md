@@ -1,4 +1,4 @@
-# MAIN TASK TO DO FOR PROJECT
+# MAIN TASKS FOR PROJECT
 
 ## :closed_lock_with_key: Task List
 
