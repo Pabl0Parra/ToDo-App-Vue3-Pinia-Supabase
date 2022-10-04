@@ -36,9 +36,9 @@
 
 #### :seedling: WHAT ELSE WILL I DO TODAY
 
-1. Style login component as well as signup component.
+1. ~~Style login component as well as signup component.~~
 
-1. Finish authentication process ➟ missing sign out capabality.
+1. ~~Finish authentication process ➟ missing sign out capabality.~~
 
 1. Edit a task on the screen and update it on the database.
 
