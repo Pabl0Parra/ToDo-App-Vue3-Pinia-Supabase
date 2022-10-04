@@ -1,42 +1,53 @@
 <template>
-  <div class="signing">
-    <h1>Sign in</h1>
-    <p v-if="errorMsg" class="">
-      {{ errorMsg }}
-    </p>
-    <form @submit.prevent="signIn">
-      <div class="">
-        <label class="" for="">Email</label><br />
+  <div class="max-w-screen-sm mx-auto px-4 py-10">
+    <div v-if="errorMsg" class="mb-10 p-4 rounded-md bg-light-grey shadow-lg">
+      <p class="text-red-500">{{ errorMsg }}</p>
+    </div>
+    <!-- Login -->
+    <form
+      @submit.prevent="signIn"
+      class="p-8 flex flex-col bg-light-grey rounded-md shadow-lg"
+    >
+      <h1 class="text-3xl text-at-light-green mb-4">Sign in</h1>
+      <div class="flex flex-col mb-2">
+        <label class="mb-1 text-sm text-at-light-green" for="email">Email</label
+        ><br />
         <input
-          class=""
-          type="email"
+          class="p-2 text-gray-500 focus:outline-none"
+          type="text"
           placeholder="dave@wuTangfinancial.com"
           v-model="email"
           id="email"
+          required
         />
       </div>
-      <div class="mb-4">
-        <label class="" for="">Password</label><br />
-        <div class="">
-          <input
-            class=""
-            :type="passwordFieldType"
-            onpaste="return false"
-            placeholder="************"
-            v-model="password"
-            id="password"
+      <div class="flex flex-col mb-2">
+        <label class="mb-1 text-sm text-at-light-green" for="password"
+          >Password</label
+        >
+        <input
+          class="p-2 text-gray-500 focus:outline-none"
+          :type="passwordFieldType"
+          onpaste="return false"
+          placeholder="************"
+          v-model="password"
+          id="password"
+        />
+        <span class="">
+          <EyeIcon
+            :class="[passwordFieldIcon]"
+            @click.prevent="hidePassword = !hidePassword"
           />
-          <span class="">
-            <EyeIcon
-              :class="[passwordFieldIcon]"
-              @click.prevent="hidePassword = !hidePassword"
-            />
-          </span>
-        </div>
+        </span>
       </div>
-      <button class="" type="submit">Sign In</button>
-      <p>Don't have an account?</p>
-      <p class="">
+      <button
+        class="mt-6 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green"
+        type="submit"
+      >
+        Sign In
+      </button>
+      <p class="text-sm mt-6 text-center">Don't have an account?</p>
+      <p class="text-at-light-green text-center">
         <PersonalRouter :route="route" :buttonText="buttonText" />
       </p>
     </form>

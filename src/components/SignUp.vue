@@ -1,7 +1,6 @@
 <template>
-  <h1 class="text-3xl font-bold underline">Hello world!</h1>
-  <div class="signing">
-    <h1>Sign Up</h1>
+  <div>
+    <h1 class="text-3xl font-bold underline">Sign Up</h1>
 
     <p>Create your personal account to manage your own tasks.</p>
 
@@ -75,7 +74,7 @@
 </template>
 <PersonalRouter :route="route" :buttonText="buttonText" />
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import PersonalRouter from "./PersonalRouter.vue";
 import { useUserStore } from "../stores/user";
@@ -86,10 +85,20 @@ const buttonText = "Sign in";
 const email = ref(null);
 const password = ref(null);
 const confirmPassword = ref(null);
-const errorMsg = ref(null);
+
 // Error Message
+const errorMsg = ref(null);
 // Show hide password variable
-// Show hide confrimPassword variable
+const passwordFieldType = computed(() =>
+  hidePassword.value ? "password" : "text"
+);
+const hidePassword = ref(true);
+// Show hide confirmPassword variable
+const confirmPasswordFieldType = computed(() =>
+  hidePassword.value ? "confirmPassword" : "text"
+);
+const hideconfirmPassword = ref(true);
+
 // Router to push user once SignedUp to Log In
 const redirect = useRouter();
 // function to SignUp user to supaBase with a timeOut() method for showing the error
@@ -116,32 +125,7 @@ async function signUp() {
 
 <style></style>
 
-<!-- <template>
-  <h1>Sign up</h1>
-  <p>Email</p>
-  <p>Password</p>
-
-  <PersonalRouter :route="route" :buttonText="buttonText" />
-</template>
-
-<script setup>
-import PersonalRouter from "./PersonalRouter.vue";
-
-// Route Variables
-const route = "/auth/login";
-const buttonText = "Test the Sign In Route";
-
-// Input Fields
-
-// Error Message
-
-// Show hide password variable
-
-// Show hide confrimPassword variable
-
-// Router to push user once SignedUp to Log In
-
-// Arrow function to SignUp user to supaBase with a timeOut() method for showing the error
-</script>
-
-<style></style> -->
+// Input Fields // Error Message // Show hide password variable // Show hide
+confrimPassword variable // Router to push user once SignedUp to Log In // Arrow
+function to SignUp user to supaBase with a timeOut() method for showing the
+error
