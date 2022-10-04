@@ -1,7 +1,5 @@
 # MAIN TASK TO DO FOR PROJECT
 
----
-
 ## :closed_lock_with_key: Task List
 
 1. Basic Setup
@@ -18,8 +16,6 @@
 3. Styling
 
 ## :calendar: 04-10-2022
-
----
 
 ### :unlock: WHAT DID I DO TODAY
 
@@ -38,10 +34,12 @@
 
 2. Created basic html structure & styles to render new tasks on the UI.
 
----
-
 #### :seedling: WHAT ELSE WILL I DO TODAY
+
+1. Style login component as well as signup component.
 
 1. Finish authentication process ➟ missing sign out capabality.
 
-2. Edit a task on the screen and update it on the database.
+1. Edit a task on the screen and update it on the database.
+
+---

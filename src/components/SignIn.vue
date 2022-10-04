@@ -1,35 +1,34 @@
 <template>
-  <div class="max-w-screen-sm mx-auto px-4 py-10">
+  <div class="w-full h-screen flex">
+    <img
+      src="https://images.unsplash.com/photo-1540569876033-6e5d046a1d77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+      alt="background"
+      class="object-cover object-center h-screen w-7/12"
+    />
     <div v-if="errorMsg" class="mb-10 p-4 rounded-md bg-light-grey shadow-lg">
       <p class="text-red-500">{{ errorMsg }}</p>
     </div>
     <!-- Login -->
     <form
       @submit.prevent="signIn"
-      class="p-8 flex flex-col bg-light-grey rounded-md shadow-lg"
+      class="bg-white flex flex-col justify-center items-center w-5/12 shadow-lg"
     >
-      <h1 class="text-3xl text-at-light-green mb-4">Sign in</h1>
-      <div class="flex flex-col mb-2">
-        <label class="mb-1 text-sm text-at-light-green" for="email">Email</label
-        ><br />
+      <h1 class="text-3xl font-bold text-orange-500 mb-2">LOGIN</h1>
+      <div class="w-1/2 text-center">
         <input
-          class="p-2 text-gray-500 focus:outline-none"
+          class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
           type="text"
-          placeholder="dave@wuTangfinancial.com"
+          placeholder="Email"
           v-model="email"
           id="email"
           required
         />
-      </div>
-      <div class="flex flex-col mb-2">
-        <label class="mb-1 text-sm text-at-light-green" for="password"
-          >Password</label
-        >
+
         <input
-          class="p-2 text-gray-500 focus:outline-none"
+          class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
           :type="passwordFieldType"
           onpaste="return false"
-          placeholder="************"
+          placeholder="Password"
           v-model="password"
           id="password"
         />
@@ -41,13 +40,15 @@
         </span>
       </div>
       <button
-        class="mt-6 py-2 px-6 rounded-sm self-start text-sm text-white bg-at-light-green duration-200 border-solid border-2 border-transparent hover:border-at-light-green hover:bg-white hover:text-at-light-green"
+        class="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-lg focus:outline-none shadow"
         type="submit"
       >
         Sign In
       </button>
       <p class="text-sm mt-6 text-center">Don't have an account?</p>
-      <p class="text-at-light-green text-center">
+      <p
+        class="text-at-light-green text-center hover:bg-orange-500 hover:text-white px-3 py-1 rounded"
+      >
         <PersonalRouter :route="route" :buttonText="buttonText" />
       </p>
     </form>

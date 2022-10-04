@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1><a href="">📁Task MaNAGER🗃️</a></h1>
+    <h1><a href="">ToDoApp NavBar</a></h1>
   </div>
 </template>
 
