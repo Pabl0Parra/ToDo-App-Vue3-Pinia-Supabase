@@ -17,18 +17,19 @@
 
 3. Styling
 
-# :calendar: 04-10-2022
+## :calendar: 04-10-2022
 
 ---
 
-## :unlock: WHAT DID I DO TODAY
+### :unlock: WHAT DID I DO TODAY
 
 <p>After carefully reviewing the documentation yesterday, I decided to first install Tailwind to implement some basic styles & responsiveness capabalities to the project.</p>
 <p>I then move to create the database in Supabase so that the app can call data from it and send it as well, I also added an extra field for the task description in the database table.</p>
 
 <p>Next, I started working on the authentication process:</p>
 
-1. SignUp - html structure, gave it some styles & responsiveness, able to sign up to Supabase with email.</br>
+1. SignUp - html structure, gave it some styles & responsiveness, able to sign up to Supabase with email.
+
 2. SignIn - html structure, gave it some styles & responsiveness, able to sign in to Supabase with email.
 
 <p>Later, I´ve worked on implementing the logic to add new tasks to the project:</p>
@@ -39,8 +40,8 @@
 
 ---
 
-## :seedling: WHAT ELSE WILL I DO TODAY
+#### :seedling: WHAT ELSE WILL I DO TODAY
 
-1. Finish authentication process --> missing sign out capabality.
+1. Finish authentication process ➟ missing sign out capabality.
 
 2. Edit a task on the screen and update it on the database.
