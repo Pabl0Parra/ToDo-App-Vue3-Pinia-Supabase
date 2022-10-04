@@ -1,4 +1,5 @@
 <template>
+  <h1 class="text-3xl font-bold underline">Hello world!</h1>
   <div class="signing">
     <h1>Sign Up</h1>
 
@@ -44,7 +45,7 @@
     </form>
   </div>
 </template>
-
+<PersonalRouter :route="route" :buttonText="buttonText" />
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
