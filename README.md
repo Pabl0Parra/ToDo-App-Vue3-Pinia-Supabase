@@ -23,23 +23,24 @@
 
 ## :unlock: WHAT DID I DO TODAY
 
-<p>After carefully reviewing the documentation yesterday, I decided to first install Tailwind to implement some basic styles & responsiveness capabalities to the project</p>
-<p>I then move to create the database in Supabase so that the app can call data from it and send it as well, to which I added an extra field for the task description</p>
+<p>After carefully reviewing the documentation yesterday, I decided to first install Tailwind to implement some basic styles & responsiveness capabalities to the project.</p>
+<p>I then move to create the database in Supabase so that the app can call data from it and send it as well, I also added an extra field for the task description in the database table.</p>
 
 <p>Next, I started working on the authentication process:</p>
-1. SignUp - html structure, gave it some styles & responsiveness, able to sign up to Supabase with email.
 
+1. SignUp - html structure, gave it some styles & responsiveness, able to sign up to Supabase with email.</br>
 2. SignIn - html structure, gave it some styles & responsiveness, able to sign in to Supabase with email.
 
-<p>Later, I´ve worked on implementing the logic to add new tasks to the project</p>
+<p>Later, I´ve worked on implementing the logic to add new tasks to the project:</p>
 
 1. Able to add new task to database - implemented logic to add new task to Supabase in the NewTask component.
 
-2. Created basic html structure & styles to render the new task on the UI.
+2. Created basic html structure & styles to render new tasks on the UI.
 
 ---
 
 ## :seedling: WHAT ELSE WILL I DO TODAY
 
-1. Finish authentication process --> missing signOut capabalities.
+1. Finish authentication process --> missing sign out capabality.
+
 2. Edit a task on the screen and update it on the database.
