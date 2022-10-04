@@ -4,7 +4,7 @@ import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 import { useUserStore } from "./stores/user.js";
 import { ref } from "vue";
-import Nav from "./components/Nav.vue";
+import NavBar from "./components/NavBar.vue";
 
 const router = useRouter();
 const userStore = useUserStore();

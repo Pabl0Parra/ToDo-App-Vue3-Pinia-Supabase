@@ -1,6 +1,8 @@
 <template>
   <div class="bg-black">
-    <h1 class="text-3xl font-bold underline">Sign Up</h1>
+    <h1 class="mt-5 text-3xl text-center text-white pt-5 font-bold">
+      Sign Up for free
+    </h1>
 
     <p></p>
 
@@ -37,7 +39,7 @@
             >Password</label
           >
           <input
-            type="password"
+            :type="passwordFieldType"
             required
             class="p-2 text-gray-500 focus:outline-none"
             id="password"
@@ -50,7 +52,7 @@
             >Confirm Password</label
           >
           <input
-            type="password"
+            :type="confirmPasswordFieldType"
             required
             class="p-2 text-gray-500 focus:outline-none"
             id="confirmPassword"
@@ -60,7 +62,7 @@
 
         <button
           type="submit"
-          class="mt-6 py-2 px-6 self-start text-sm text-white bg-black duration-200 border-solid border-2 border-transparent hover:border-at-light-green hover:bg-yellow-400 hover:text-black rounded"
+          class="mt-6 py-2 px-6 self-start text-sm text-white bg-black duration-200 border-solid border-2 border-transparent hover:border-at-light-green hover:bg-yellow-400 hover:font-bold hover:text-black rounded"
         >
           Sign Up
         </button>
@@ -71,7 +73,7 @@
           <PersonalRouter
             :route="route"
             :buttonText="buttonText"
-            class="hover:bg-yellow-500 py-2 px-6 rounded"
+            class="text-decoration-line: underline"
           />
         </p>
       </form>
@@ -84,9 +86,11 @@ import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import PersonalRouter from "./PersonalRouter.vue";
 import { useUserStore } from "../stores/user";
+
 // Route Variables
 const route = "/auth/login";
-const buttonText = "Sign in";
+const buttonText = "Login";
+
 // Input Fields
 const email = ref(null);
 const password = ref(null);
@@ -94,26 +98,30 @@ const confirmPassword = ref(null);
 
 // Error Message
 const errorMsg = ref(null);
+
 // Show hide password variable
 const passwordFieldType = computed(() =>
   hidePassword.value ? "password" : "text"
 );
 const hidePassword = ref(true);
+
 // Show hide confirmPassword variable
 const confirmPasswordFieldType = computed(() =>
-  hidePassword.value ? "confirmPassword" : "text"
+  hideConfirmPassword.value ? "confirmPassword" : "text"
 );
-const hideconfirmPassword = ref(true);
+const hideConfirmPassword = ref(true);
 
 // Router to push user once SignedUp to Log In
 const redirect = useRouter();
+
 // function to SignUp user to supaBase with a timeOut() method for showing the error
 async function signUp() {
   if (password.value === confirmPassword.value) {
     try {
       await useUserStore().signUp(email.value, password.value);
+
       // if (error) throw error;
-      redirect.push({ path: "/auth" });
+      redirect.push({ path: "/auth/login" });
     } catch (error) {
       errorMsg.value = error.message;
       setTimeout(() => {

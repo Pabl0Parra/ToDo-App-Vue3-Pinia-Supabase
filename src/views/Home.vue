@@ -1,8 +1,7 @@
 <template>
+  <NavBar />
   <div id="flexbox">
     <div class="flexbox_element">
-      <div>You are signed up as {{ userName }}</div>
-
       <NewTask @childNewTask="sendToStore" />
       <br />
       <p>Total tasks: {{ taskArray.length }}</p>
@@ -29,14 +28,14 @@ import { ref } from "vue";
 import TodoTasks from "../components/TodoTasks.vue";
 import DoneTasks from "../components/DoneTasks.vue";
 
-//coger el email del usuario
-
 import { useUserStore } from "@/stores/user.js";
-let userName = ref(useUserStore().user.email);
+import NavBar from "../components/NavBar.vue";
+// define user email store inside a variable
+let userEmail = ref(useUserStore().user.email);
 
-// nos definimos la tienda del usuario dentro de una constante
+// define the user store inside a variable
 const taskStore = useTaskStore();
-// Inicializamos array de tareas
+// Initialize empty tasks Array
 let taskArray = ref([]);
 
 async function readFromStore() {
@@ -45,15 +44,11 @@ async function readFromStore() {
 
 readFromStore();
 
-// Enviamos los datos de la tarea a la Tienda taskStore
+// Send task data to the tasks Store
 async function sendToStore(title, description) {
   await taskStore.addTask(title, description);
   readFromStore();
 }
-// async function readAll() {
-//   let { data: tasks, error } = await supabase.from("tasks").select("*");
-// }
-// readAll();
 </script>
 <style scoped>
 #todoTasks {
