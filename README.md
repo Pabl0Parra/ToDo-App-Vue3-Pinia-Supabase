@@ -1,11 +1,11 @@
-# MAIN TASK TO DO FOR PROJECT
+# MAIN TASKS FOR PROJECT
 
 ## :closed_lock_with_key: Task List
 
 1. Basic Setup
 2. Functionalities
 
-- Authentication (~~sign up~~, ~~sign in~~, sign out)
+- ~~Authentication~~ (~~sign up~~, ~~sign in~~, ~~sign out~~)
 - A front-end that displays the user’s personal to-do list
 - ~~Add new tasks~~
 - Edit existing tasks
@@ -36,10 +36,15 @@
 
 #### :seedling: WHAT ELSE WILL I DO TODAY
 
-1. Style login component as well as signup component.
+1. ~~Style login component as well as signup component.~~
 
-1. Finish authentication process ➟ missing sign out capabality.
+1. ~~Finish authentication process ➟ missing sign out capabality.~~
 
 1. Edit a task on the screen and update it on the database.
 
 ---
+## :calendar: 05-10-2022
+
+### :unlock: WHAT AM I GOING TO DO TODAY?
+
+<p>Today I´m going to work on the UI for the tasks as well as being able to edit and delete a task</p>
