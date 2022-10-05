@@ -33,12 +33,12 @@
           id="password"
           required
         />
-        <span class="">
-          <EyeIcon
-            :class="[passwordFieldIcon]"
-            @click.prevent="hidePassword = !hidePassword"
-          />
-        </span>
+        <!-- NOT SHOWING ON UI -->
+        <i
+          class="fa-light fa-eye"
+          @click.prevent="hidePassword = !hidePassword"
+        >
+        </i>
       </div>
       <button
         class="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-lg focus:outline-none shadow"
