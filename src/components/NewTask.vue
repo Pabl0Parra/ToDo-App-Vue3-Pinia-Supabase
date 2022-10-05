@@ -50,29 +50,6 @@
       </form>
     </div>
   </div>
-
-  <!-- <div>
-    <h2>Create task</h2>
-    <br />
-    <input
-      v-model="taskTitle"
-      type="text"
-      id="newTaskTitle"
-      placeholder="Title"
-    /><br /><br />
-
-    <input
-      v-model="taskDesc"
-      type="text"
-      id="newTaskDesc"
-      placeholder="Description"
-    /><br /><br />
-
-    <button @click.prevent="uploadTask">Create</button>
-  </div>
-  <div>
-    <h3 v-if="error">{{ errorMsg }}</h3>
-  </div> -->
 </template>
 
 <script setup>
@@ -101,17 +78,6 @@ function uploadTask() {
     console.log(taskTitle.value);
   }
 }
-
-// async function uploadTask() {
-//   const { data, error } = await supabase.from("tasks").insert([
-//     {
-//       user_id: "5fa3d22c-892b-44fc-a3a6-efc7e5503032",
-//       title: taskTitle.value,
-//       description: taskDesc.value,
-//       is_complete: false,
-//     },
-//   ]);
-// }
 
 // constant to save a variable that define the custom event that will be emitted to the homeView
 

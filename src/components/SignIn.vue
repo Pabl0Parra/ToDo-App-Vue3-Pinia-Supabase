@@ -31,6 +31,7 @@
           placeholder="Password"
           v-model="password"
           id="password"
+          required
         />
         <span class="">
           <EyeIcon
@@ -74,6 +75,7 @@ const password = ref("");
 // Error Message
 const errorMsg = ref("");
 
+const passwordFieldIcon = ref("");
 //Show hide password variables
 const passwordFieldType = computed(() =>
   hidePassword.value ? "password" : "text"
