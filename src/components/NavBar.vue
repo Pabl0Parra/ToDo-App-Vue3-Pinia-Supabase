@@ -48,7 +48,9 @@
         <div class="auth flex items-center w-full md:w-full text-gray-200">
           <p>
             Welcome
-            <span class="usuario-name text-gray-200">{{ emailName[0] }}</span>
+            <span class="usuario-name text-gray-200 me-4">{{
+              emailName[0]
+            }}</span>
           </p>
           <button
             @click="signOut"
@@ -86,7 +88,10 @@ const redirect = useRouter();
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
 const signOut = async () => {
   try {
-    // calls the user store and send the users info to backend to signOut
+    // calls the user store and send the users info to backend to signOut()
+    console.log("entering try catch");
+    console.log(userStore);
+    console.log(userStore.signOut());
     await userStore().signOut();
     // redirects user to the homeView
     redirect.push({ path: "/auth/login" });

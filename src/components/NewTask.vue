@@ -1,5 +1,57 @@
 <template>
-  <div>
+  <div class="max-w-screen-md mx-auto px-4 py-10">
+    <div v-if="error" class="mb-10 p-4 bg-light-grey rounded-md shadow-lg">
+      <h3 class="text-red-500">{{ errorMsg }}</h3>
+    </div>
+
+    <!-- Create -->
+    <div class="p-8 flex items-start bg-light-grey rounded-md shadow-lg">
+      <!-- Form -->
+      <form @submit.prevent="uploadTask" class="flex flex-col gap-y-5 w-full">
+        <h1 class="text-3xl text-center font-bold text-orange-500 mb-2">
+          Create new task
+        </h1>
+        <!-- Task title -->
+        <div class="flex flex-col">
+          <label for="taskTitle" class="mb-1 text-sm text-at-light-green"
+            >Workout Name</label
+          >
+          <input
+            class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
+            v-model="taskTitle"
+            type="text"
+            id="newTaskTitle"
+            placeholder="Title"
+            name="taskTitle"
+            required
+          />
+        </div>
+
+        <!-- Task Description -->
+        <div class="flex flex-col">
+          <label for="taskDesc" class="mb-1 text-sm text-at-light-green"
+            >Task Description</label
+          >
+          <input
+            class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
+            v-model="taskDesc"
+            type="text"
+            id="newTaskDesc"
+            placeholder="Description"
+            required
+          />
+        </div>
+        <button
+          @click.prevent="uploadTask"
+          class="mt-6 py-2 px-6 rounded-sm self-start text-sm text-white bg-orange-500 duration-200 border-solid border-2 border-transparent hover:border-at-light-green hover:bg-yellow-300 hover:text-black"
+        >
+          Create task
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- <div>
     <h2>Create task</h2>
     <br />
     <input
@@ -20,7 +72,7 @@
   </div>
   <div>
     <h3 v-if="error">{{ errorMsg }}</h3>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
@@ -41,7 +93,7 @@ function uploadTask() {
     errorMsg.value = "Title is required.";
     setTimeout(() => {
       error.value = false;
-    }, 1000);
+    }, 3000);
   } else {
     emit("childNewTask", taskTitle.value, taskDesc.value);
     taskTitle.value = "";
