@@ -11,12 +11,14 @@ export const useTaskStore = defineStore("tasks", {
       const { data: tasks } = await supabase
         .from("tasks")
         .select("*")
-        .order("id", { ascending: true });
+        .order("id", { ascending: false });
       this.tasks = tasks;
       return this.tasks;
     },
     // New code
     async addTask(title, description) {
+      console.log("add task desde useTaskStore", title);
+
       console.log(useUserStore().user.id);
       const { data, error } = await supabase.from("tasks").insert([
         {
@@ -28,18 +30,25 @@ export const useTaskStore = defineStore("tasks", {
       ]);
     },
 
-    async completeTask(taskID) {
+    async editTask(title, description, id) {
       const { data, error } = await supabase
         .from("tasks")
-        .update({ is_complete: true })
-        .eq("id", taskID);
+        .update({ title: title, description: description })
+        .match({ id: id });
     },
 
-    async deleteAllTasks() {
+    async tooggleTask(is_complete, id) {
+      const { data, error } = await supabase
+        .from("tasks")
+        .update({ is_complete: is_complete })
+        .match({ id: id });
+    },
+
+    async deleteTask(id) {
       const { data, error } = await supabase
         .from("tasks")
         .delete()
-        .eq("is_complete", false);
+        .match({ id: id });
     },
   },
 });
