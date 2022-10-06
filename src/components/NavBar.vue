@@ -1,6 +1,6 @@
 <template>
   <!-- component -->
-  <nav id="header" class="w-full z-30 top-10 py-1 bg-[#0b050e] shadow-lg">
+  <nav id="header" class="w-full z-30 top-10 py-1 bg-blueDark shadow-lg">
     <div class="w-full flex items-center justify-between mt-0 px-6 py-2">
       <label for="menu-toggle" class="cursor-pointer md:hidden block">
         <svg
@@ -25,7 +25,7 @@
           >
             <li>
               <a
-                class="inline-block no-underline hover:text-white font-medium text-lg py-2 px-4 lg:-ml-2"
+                class="inline-block no-underline hover:text-orange-500 font-medium text-lg py-2 px-4 lg:-ml-2"
                 href="#"
                 >Home</a
               >
@@ -34,7 +34,7 @@
             <li>
               <a :to="route" id="signout" class="button-red" @click="signOut()">
                 <span class="fa fa-info-circle"></span
-                ><span class="link">Log out</span></a
+                ><span class="link hover:text-orange-500">Log out</span></a
               >
             </li>
           </ul>
@@ -48,13 +48,13 @@
         <div class="auth flex items-center w-full md:w-full text-gray-200">
           <p>
             Welcome
-            <span class="usuario-name text-gray-200 mr-5">{{
+            <span class="usuario-name text-orange-500 mr-5">{{
               emailName[0]
             }}</span>
           </p>
           <button
             @click="signOut"
-            class="button bg-orange-400 p-2 m-1 rounded to-blue-500 hover:bg-yellow-500"
+            class="button bg-orange-500 p-2 m-1 rounded hover:bg-yellow-500 text-blueDark"
           >
             Log Out
           </button>
