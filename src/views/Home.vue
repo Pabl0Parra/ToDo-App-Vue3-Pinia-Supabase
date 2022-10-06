@@ -64,8 +64,6 @@ const editTask = async (task) => {
 };
 </script>
 
-<style></style>
-
 <!-- 
 **Hints**
 1. ref() is used here!

@@ -1,10 +1,8 @@
 <script setup>
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 import { useUserStore } from "./stores/user.js";
-import { ref } from "vue";
-import NavBar from "./components/NavBar.vue";
 
 const router = useRouter();
 const userStore = useUserStore();
@@ -33,5 +31,3 @@ onMounted(async () => {
     <router-view />
   </div>
 </template>
-
-<style></style>

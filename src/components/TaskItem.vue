@@ -26,12 +26,11 @@
         @click="showToolsHandler"
         class="font-bold text-white dark:text-gray-400 text-ellipsis overflow-hidden pt-3 py-2 hover:underline hover:cursor-pointer hover:text-white"
       >
-        <i> {{ task.description }}</i>
+        <em> {{ task.description }}</em>
       </p>
       <hr class="text-black w-full pt-4" />
       <p>{{ testing() }}</p>
 
-      <!-- <p v-if="isCompleted">Is complete</p> -->
       <div v-if="showTools" class="inline-flex my-5 gap-5">
         <button
           class="bg-orange-500 hover:bg-yellow-400 font-bold text-blueDark py-2 px-2"
@@ -82,7 +81,6 @@
 
 <script setup>
 import { ref } from "vue";
-import { useTaskStore } from "../stores/task.js";
 
 const title = ref("");
 const description = ref("");
@@ -90,9 +88,12 @@ const id = ref(props.task.id);
 
 // a boolean to store a false
 const editChecked = ref(false);
+
 const titleEdited = ref("");
 const descriptionEdited = ref("");
+
 let showTools = ref(false);
+
 let isCompleted = ref(props.task.isCompleted);
 
 // Function to handle the edit dialogue where the inputField is displayed and the string used to store the value of the inputField will be used here to save the value as a prop on this function.

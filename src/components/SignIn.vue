@@ -34,11 +34,11 @@
           required
         />
         <!-- NOT SHOWING ON UI -->
-        <i
+        <em
           class="fa-light fa-eye"
           @click.prevent="hidePassword = !hidePassword"
         >
-        </i>
+        </em>
       </div>
       <button
         class="orange hover:bg-orange-600 font-bold text-white px-3 py-1 rounded text-lg focus:outline-none shadow-lg"
@@ -57,11 +57,11 @@
 <script setup>
 import { ref, computed } from "vue";
 import PersonalRouter from "./PersonalRouter.vue";
-import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
-import { storeToRefs } from "pinia";
 
+// reference useUserStore
+const userStore = useUserStore();
 // Route Variables
 const route = "/auth/sign-up";
 const buttonText = "Create one!";
@@ -87,7 +87,7 @@ const redirect = useRouter();
 const signIn = async () => {
   try {
     // calls the user store and send the users info to backend to logIn
-    await useUserStore().signIn(email.value, password.value);
+    await userStore.signIn(email.value, password.value);
     // redirects user to the homeView
     redirect.push({ path: "/" });
   } catch (error) {

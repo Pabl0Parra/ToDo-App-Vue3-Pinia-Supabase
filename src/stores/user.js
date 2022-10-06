@@ -28,7 +28,6 @@ export const useUserStore = defineStore("user", {
       if (error) throw error;
       if (user) {
         this.user = user;
-        // console.log(this.user);
       }
     },
     async signOut() {

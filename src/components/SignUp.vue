@@ -118,7 +118,6 @@ async function signUp() {
     try {
       await useUserStore().signUp(email.value, password.value);
 
-      // if (error) throw error;
       redirect.push({ path: "/auth/login" });
     } catch (error) {
       errorMsg.value = error.message;
@@ -134,10 +133,3 @@ async function signUp() {
   }, 5000);
 }
 </script>
-
-<style></style>
-
-// Input Fields // Error Message // Show hide password variable // Show hide
-confrimPassword variable // Router to push user once SignedUp to Log In // Arrow
-function to SignUp user to supaBase with a timeOut() method for showing the
-error

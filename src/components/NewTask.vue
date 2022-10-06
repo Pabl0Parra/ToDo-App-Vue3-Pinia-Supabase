@@ -36,8 +36,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { useTaskStore } from "../stores/task.js";
-import NavBar from "./NavBar.vue";
+
 // constant to save a variable that define the custom event that will be emitted to the homeView
 const emit = defineEmits(["add-task"]);
 // constant to save a variable that holds the value of the title input field of the new task
@@ -64,5 +63,3 @@ const deletMsg = () => {
   errorWhitoutTitle.value = false;
 };
 </script>
-
-<style scoped></style>

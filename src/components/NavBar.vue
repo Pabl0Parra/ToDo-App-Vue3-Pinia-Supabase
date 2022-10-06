@@ -36,7 +36,6 @@
 </template>
 
 <script setup>
-// import PersonalRouter from "./PersonalRouter.vue";
 import { useUserStore } from "../stores/user.js";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
@@ -82,12 +81,6 @@ async function signOut() {
 //     }, 5000);
 //   }
 // };
-// const btn = document.querySelector("button.mobile-menu-button");
-// const menu = document.querySelector(".mobile-menu");
-
-// btn.addEventListener("click", () => {
-//   menu.classList.toggle("hidden");
-// });
 </script>
 
 <style scope>

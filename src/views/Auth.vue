@@ -3,9 +3,3 @@
 </template>
 
 <script setup></script>
-
-<style></style>
-
-<!-- 
-**noHints**
--->
