@@ -1,64 +1,35 @@
 <template>
-  <!-- component -->
-  <nav id="header" class="w-full z-30 top-10 py-1 bg-blueDark shadow-lg">
-    <div class="w-full flex items-center justify-between mt-0 px-6 py-2">
-      <label for="menu-toggle" class="cursor-pointer md:hidden block">
-        <svg
-          class="fill-current text-gray-200"
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-        >
-          <title>menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-        </svg>
-      </label>
-      <input class="hidden" type="checkbox" id="menu-toggle" />
-      <div
-        class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1"
-        id="menu"
+  <nav class="navbar navbar-expand-lg fixed top-0 z-50">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold ms-2" href="#">TASKA</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
       >
-        <nav>
-          <ul
-            class="md:flex items-center justify-between text-base text-white pt-4 md:pt-0"
-          >
-            <li>
-              <a
-                class="inline-block no-underline hover:text-orange-500 font-medium text-lg py-2 px-4 lg:-ml-2"
-                href="#"
-                >Home</a
-              >
-            </li>
-            <li></li>
-            <li>
-              <a :to="route" id="signout" class="button-red" @click="signOut()">
-                <span class="fa fa-info-circle"></span
-                ><span class="link hover:text-orange-500">Log out</span></a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      <div
-        class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4"
-        id="nav-content"
-      >
-        <div class="auth flex items-center w-full md:w-full text-gray-200">
-          <p>
-            Welcome
-            <span class="usuario-name text-orange-500 mr-5">{{
-              emailName[0]
-            }}</span>
-          </p>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active home" aria-current="page" href="#"
+              >Home</a
+            >
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
           <button
             @click="signOut"
-            class="button bg-orange-500 p-2 m-1 rounded hover:bg-yellow-500 text-blueDark"
+            class="btn logOut fw-bold mb-1"
+            type="submit"
           >
-            Log Out
+            LOG OUT
           </button>
-        </div>
+        </form>
       </div>
     </div>
   </nav>
@@ -111,6 +82,38 @@ async function signOut() {
 //     }, 5000);
 //   }
 // };
+// const btn = document.querySelector("button.mobile-menu-button");
+// const menu = document.querySelector(".mobile-menu");
+
+// btn.addEventListener("click", () => {
+//   menu.classList.toggle("hidden");
+// });
 </script>
 
-<style></style>
+<style scope>
+.navbar {
+  background-color: #272c48 !important;
+  height: 70px;
+  position: sticky !important;
+  border-bottom: 1px solid white;
+}
+.navbar-brand,
+.home {
+  color: #f97316 !important;
+}
+.navbar-brand:hover,
+.home:hover {
+  color: white !important;
+}
+.logOut {
+  background-color: #f97316 !important;
+}
+
+.logOut:hover {
+  background-color: gold !important;
+}
+
+.container-fluid {
+  background-color: #272c48 !important;
+}
+</style>

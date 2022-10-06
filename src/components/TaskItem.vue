@@ -1,27 +1,39 @@
 <template>
   <div class="flex flex-col items-center bg-gray-300">
     <div
-      :class="{ completed_style: is_complete }"
+      :class="{ completed_style: isCompleted }"
       class="w-3/4 text-center m-5 border-2block p-6 rounded bg-blueDark shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
     >
       <h5
-        @click="showToolsHandler"
-        class="mb-2 text-2xl font-bold tracking-tight text-orange-500 dark:text-white text-ellipsis overflow-hidden hover:underline hover:cursor-pointer hover:text-taLightMain"
+        class="mb-2 text-2xl font-bold tracking-tight text-orange-500 dark:text-white overflow-hidden"
       >
-        TITLE: {{ task.title }}
+        TITLE
+      </h5>
+      <h5
+        @click="showToolsHandler"
+        class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white text-ellipsis overflow-hidden hover:underline hover:cursor-pointer hover:text-white"
+      >
+        {{ task.title }}
       </h5>
       <hr class="bg-white" />
+      <h3
+        class="font-bold text-orange-500 dark:text-gray-400 text-ellipsis overflow-hidden pt-5"
+      >
+        DESCRIPTION
+      </h3>
       <p
         @click="showToolsHandler"
-        class="font-normal text-orange-500 dark:text-gray-400 text-ellipsis overflow-hidden pt-5"
+        class="font-bold text-white dark:text-gray-400 text-ellipsis overflow-hidden pt-5 hover:underline hover:cursor-pointer hover:text-white"
       >
-        <i>DESCRIPTION: {{ task.description }}</i>
+        <i> {{ task.description }}</i>
       </p>
 
-      <!-- <p v-if="is_complete">Is complete</p> -->
+      <p>{{ testing() }}</p>
+
+      <!-- <p v-if="isCompleted">Is complete</p> -->
       <div v-if="showTools" class="inline-flex my-5 gap-5">
         <button
-          class="bg-orange-500 hover:bg-yellow-400 font-bold text-blueDark py-2 px-4"
+          class="bg-orange-500 hover:bg-yellow-400 font-bold text-blueDark py-2 px-2"
           @click="addToggle"
         >
           DONE
@@ -80,13 +92,13 @@ const editChecked = ref(false);
 const titleEdited = ref("");
 const descriptionEdited = ref("");
 let showTools = ref(false);
+let isCompleted = ref(props.task.isCompleted);
 
 // Function to handle the edit dialogue where the inputField is displayed and the string used to store the value of the inputField will be used here to save the value as a prop on this function.
 const showToolsHandler = () => {
   showTools.value = !showTools.value;
   editChecked.value = false;
 };
-let is_complete = ref(props.task.is_complete);
 
 const props = defineProps({
   task: Object,
@@ -99,8 +111,8 @@ const emit = defineEmits(["delete-task", "add-toogle", "edit-task"]);
 
 // Function to emmit a custom event emit() that takes 2 parameters a name for the custom event and the value that will be send via the prop to the parent component. This function can control the toggle completion of the task on the homeview.
 const addToggle = () => {
-  is_complete.value = !is_complete.value;
-  emit("add-toogle", is_complete.value, id.value);
+  isCompleted.value = !isCompleted.value;
+  emit("add-toogle", isCompleted.value, id.value);
 };
 
 // Function to emmit a custom event emit() that takes 2 parameters a name for the custom event and the value that will be send via the prop to the parent component. This function can control the removal of  the task on the homeview.
@@ -124,11 +136,22 @@ const editTask = () => {
   emit("edit-task", editValues);
   editChecked.value = !editChecked.value;
 };
+
+const testing = () => {
+  if (isCompleted === true) {
+    const completed = "The task is completed";
+    return completed;
+  } else {
+    const uncompleted = "The task remains undone";
+    return uncompleted;
+  }
+};
 </script>
 
 <style>
 .completed_style {
   background: rgb(143, 226, 188);
+  text-decoration: line-through;
 }
 </style>
 
