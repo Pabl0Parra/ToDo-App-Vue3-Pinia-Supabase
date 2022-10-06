@@ -6,11 +6,11 @@
 2. Functionalities
 
 - ~~Authentication~~ (~~sign up~~, ~~sign in~~, ~~sign out~~)
-- A front-end that displays the user’s personal to-do list
+- ~~A front-end that displays the user’s personal to-do list~~
 - ~~Add new tasks~~
-- Edit existing tasks
-- Mark tasks as complete/incomplete
-- Delete existing tasks
+- ~~Edit existing tasks~~
+- ~~Mark tasks as complete/incomplete~~
+- ~~Delete existing tasks~~
 - ~~A store and a database that your app can call data from~~
 
 3. Styling
@@ -40,7 +40,7 @@
 
 1. ~~Finish authentication process ➟ missing sign out capabality.~~
 
-1. Edit a task on the screen and update it on the database.
+1. ~~Edit a task on the screen and update it on the database.~~
 
 ---
 ## :calendar: 05-10-2022
@@ -48,3 +48,15 @@
 ### :unlock: WHAT AM I GOING TO DO TODAY?
 
 <p>Today I´m going to work on the UI for the tasks as well as being able to edit and delete a task</p>
+
+## :calendar: 06-10-2022
+
+### :unlock: WHAT AM I GOING TO DO TODAY?
+
+<p>All functionalities implemented.</p>
+<p>Today I will work on:</p>
+  - Style NewTask component.
+  - Style Home page component.
+  - Create footer.
+  - Fix NavBar.
+  - Deploy app in Vercel.
