@@ -3,7 +3,7 @@
 ## :closed_lock_with_key: Task List
 
 1. Basic Setup
-2. Functionalities
+2. ~~Functionalities~~
 
 - ~~Authentication~~ (~~sign up~~, ~~sign in~~, ~~sign out~~)
 - ~~A front-end that displays the user’s personal to-do list~~
@@ -55,8 +55,13 @@
 
 <p>All functionalities implemented.</p>
 <p>Today I will work on:</p>
+
   - Style NewTask component.
+  
   - Style Home page component.
+  
   - Create footer.
+  
   - Fix NavBar.
+  
   - Deploy app in Vercel.
