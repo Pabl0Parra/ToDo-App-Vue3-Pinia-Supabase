@@ -49,6 +49,7 @@
 
 <p>Today I´m going to work on the UI for the tasks as well as being able to edit and delete a task</p>
 
+---
 ## :calendar: 06-10-2022
 
 ### :unlock: WHAT AM I GOING TO DO TODAY?
