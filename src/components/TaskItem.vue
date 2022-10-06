@@ -1,9 +1,10 @@
 <template>
-  <div class="flex flex-col items-center bg-gray-300">
+  <div class="flex flex-col items-center">
     <div
       :class="{ completed_style: isCompleted }"
       class="w-3/4 text-center m-5 border-2block p-6 rounded bg-blueDark shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
     >
+      <hr />
       <h5
         class="mb-2 text-2xl font-bold tracking-tight text-orange-500 dark:text-white overflow-hidden"
       >
@@ -23,11 +24,11 @@
       </h3>
       <p
         @click="showToolsHandler"
-        class="font-bold text-white dark:text-gray-400 text-ellipsis overflow-hidden pt-5 hover:underline hover:cursor-pointer hover:text-white"
+        class="font-bold text-white dark:text-gray-400 text-ellipsis overflow-hidden pt-3 py-2 hover:underline hover:cursor-pointer hover:text-white"
       >
         <i> {{ task.description }}</i>
       </p>
-
+      <hr class="text-black w-full pt-4" />
       <p>{{ testing() }}</p>
 
       <!-- <p v-if="isCompleted">Is complete</p> -->
@@ -69,7 +70,7 @@
           />
 
           <button
-            class="w-full mt-6 p-3 px-6 self-start font-bold text-sm text-blueDark bg-orange-500 duration-200 border-transparent hover:bg-gray-500 hover:text-at-light-grey"
+            class="w-full mt-6 p-3 px-6 self-start font-bold text-sm text-blueDark bg-orange-500 duration-200 border-transparent hover:bg-yellow-400 hover:text-at-light-grey"
           >
             EDIT TASK
           </button>
@@ -148,7 +149,7 @@ const testing = () => {
 };
 </script>
 
-<style>
+<style scoped>
 .completed_style {
   background: rgb(143, 226, 188);
   text-decoration: line-through;

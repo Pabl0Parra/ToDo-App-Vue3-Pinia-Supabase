@@ -1,14 +1,12 @@
 <template>
-  <div class="bg-black">
-    <h1 class="mt-5 text-3xl text-center text-white pt-5 font-bold">
+  <div class="bg-blueDark">
+    <h1 class="text-3xl text-center text-white pt-5 font-bold">
       Sign Up for free
     </h1>
 
-    <p></p>
-
     <div class="max-w-screen-sm mx-auto px-4 py-10">
       <!-- Error Handling -->
-      <div v-if="errorMsg" class="mb-10 p-4 rounded-md bg-light-grey shadow-lg">
+      <div v-if="errorMsg" class="mb-10 p-4 rounded-md bg-gray-200 shadow-lg">
         <p class="text-red-500">{{ errorMsg }}</p>
       </div>
 
@@ -17,7 +15,7 @@
         @submit.prevent="signUp()"
         class="bg-gradient-to-r from-orange-400 to-orange-800 p-8 flex flex-col bg-light-grey rounded-md shadow-lg"
       >
-        <h1 class="text-3xl text-center font-bold text-black-500 mb-2">
+        <h1 class="text-3xl text-center font-bold text-blueDark0 mb-2">
           CREATE YOUR ACCOUNT
         </h1>
 
@@ -28,20 +26,20 @@
           <input
             type="text"
             required
-            class="p-2 text-gray-500 focus:outline-none"
+            class="p-2 text-orange-500 focus:outline-none"
             id="email"
             v-model="email"
           />
         </div>
 
         <div class="flex flex-col mb-2">
-          <label for="password" class="mb-1 text-sm text-at-light-green"
+          <label for="password" class="mb-1 text-sm text-blueDark"
             >Password</label
           >
           <input
             :type="passwordFieldType"
             required
-            class="p-2 text-gray-500 focus:outline-none"
+            class="p-2 text-orange-500 focus:outline-none"
             id="password"
             v-model="password"
           />
@@ -52,9 +50,9 @@
             >Confirm Password</label
           >
           <input
-            :type="confirmPasswordFieldType"
+            :type="passwordFieldType"
             required
-            class="p-2 text-gray-500 focus:outline-none"
+            class="p-2 text-orange-500 focus:outline-none"
             id="confirmPassword"
             v-model="confirmPassword"
           />
@@ -62,9 +60,9 @@
 
         <button
           type="submit"
-          class="mt-6 py-2 px-6 self-start text-sm text-white bg-black duration-200 border-solid border-2 border-transparent hover:border-at-light-green hover:bg-yellow-400 hover:font-bold hover:text-black rounded"
+          class="mt-6 py-2 px-6 self-center font-bold text-sm text-orange-500 bg-blueDark duration-200 border-solid border-2 border-transparent hover:border-at-light-green hover:bg-yellow-400 hover:font-bold hover:text-black rounded"
         >
-          Sign Up
+          SIGN UP
         </button>
         <p class="">
           <span class="text-sm mt-6 text-center"
@@ -73,7 +71,7 @@
           <PersonalRouter
             :route="route"
             :buttonText="buttonText"
-            class="text-decoration-line: underline"
+            class="text-blueDark text-decoration-line: underline"
           />
         </p>
       </form>

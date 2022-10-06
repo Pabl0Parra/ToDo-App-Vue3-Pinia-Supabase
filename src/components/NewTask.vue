@@ -65,4 +65,4 @@ const deletMsg = () => {
 };
 </script>
 
-<style></style>
+<style scoped></style>

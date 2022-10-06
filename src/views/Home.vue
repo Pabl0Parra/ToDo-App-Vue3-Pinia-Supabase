@@ -1,7 +1,7 @@
 <template>
   <NavBar />
 
-  <div class="text-center bg-gray-100">
+  <div class="text-center bg-gray-200">
     <h1 class="text-4xl pt-5 font-bold text-orange-500">ADD A NEW TASK</h1>
 
     <NewTask @add-task="addTask" />
@@ -26,6 +26,7 @@ import TaskItem from "../components/TaskItem.vue";
 import { ref } from "vue";
 import { useTaskStore } from "../stores/task.js";
 import NavBar from "../components/NavBar.vue";
+import Footer from "../components/Footer.vue";
 
 // task Store reference
 const taskStore = useTaskStore();

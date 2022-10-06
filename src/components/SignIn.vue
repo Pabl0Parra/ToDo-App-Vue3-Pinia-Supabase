@@ -11,7 +11,7 @@
     <!-- Login -->
     <form
       @submit.prevent="signIn"
-      class="bg-white flex flex-col justify-center items-center w-5/12 shadow-lg"
+      class="flex flex-col justify-center items-center w-5/12 shadow-lg"
     >
       <h1 class="text-3xl font-bold text-orange-500 mb-2">LOGIN</h1>
       <div class="w-1/2 text-center">
@@ -41,15 +41,13 @@
         </i>
       </div>
       <button
-        class="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-lg focus:outline-none shadow"
+        class="orange hover:bg-orange-600 font-bold text-white px-3 py-1 rounded text-lg focus:outline-none shadow-lg"
         type="submit"
       >
-        Sign In
+        SIGN IN
       </button>
       <p class="text-sm mt-6 text-center">Don't have an account?</p>
-      <p
-        class="text-at-light-green text-center hover:bg-orange-500 hover:text-white px-3 py-1 rounded"
-      >
+      <p class="text-center hover:text-white px-3 py-1 rounded">
         <PersonalRouter :route="route" :buttonText="buttonText" />
       </p>
     </form>
@@ -103,4 +101,12 @@ const signIn = async () => {
 };
 </script>
 
-<style></style>
+<style scoped>
+.orange {
+  background-color: #f97316 !important;
+}
+
+.orange:hover {
+  background-color: #e36206 !important;
+}
+</style>
