@@ -3,7 +3,9 @@
 
   <div class="text-center bg-gray-200">
     <h1 class="text-4xl pt-5 font-bold text-orange-500">ADD A NEW TASK</h1>
-
+    <h3 class="text-xl pt-3 text-gray-500">
+      {{ date }}
+    </h3>
     <NewTask @add-task="addTask" />
   </div>
 
@@ -27,10 +29,12 @@ import { ref } from "vue";
 import { useTaskStore } from "../stores/task.js";
 import NavBar from "../components/NavBar.vue";
 import Footer from "../components/Footer.vue";
+import moment from "moment";
 
 // task Store reference
 const taskStore = useTaskStore();
 
+// initialize empty supabase tasks array
 const supabaseTasks = ref([]);
 
 // async function to get the tasks already created in supabase
@@ -39,7 +43,7 @@ const getTasks = async () => {
 };
 getTasks();
 
-// create async functions to call the task store functions and they will be available in the components via emits
+// create async functions to call the task store functions, which will be available in the rest of the components via emits
 const addTask = async (title, desc) => {
   await taskStore.addTask(title, desc);
   getTasks();
@@ -62,6 +66,9 @@ const editTask = async (task) => {
   await taskStore.editTask(newTitle, newDescription, taskId);
   getTasks();
 };
+
+// store date into constant
+const date = moment().format("MMM Do YY");
 </script>
 
 <!-- 

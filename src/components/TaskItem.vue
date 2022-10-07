@@ -5,6 +5,9 @@
       class="w-3/4 text-center m-5 border-2block p-6 rounded bg-blueDark shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
     >
       <hr />
+      <div>
+        <h5>{{ date }}</h5>
+      </div>
       <h5
         class="mb-2 text-2xl font-bold tracking-tight text-orange-500 dark:text-white overflow-hidden"
       >
@@ -81,6 +84,9 @@
 
 <script setup>
 import { ref } from "vue";
+import moment from "moment";
+moment.locale("es");
+const date = moment(Date.now()).format("MMMM Do YYYY, h:mm:ss a");
 
 const title = ref("");
 const description = ref("");
