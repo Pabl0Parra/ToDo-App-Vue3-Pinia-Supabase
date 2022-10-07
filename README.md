@@ -57,12 +57,18 @@
 <p>All functionalities implemented.</p>
 <p>Today I will work on:</p>
 
-  - Style NewTask component.
+  - ~~Style NewTask component.
   
-  - Style Home page component.
+  - ~~Style Home page component.
   
-  - Create footer.
+  - ~~Create footer.
   
-  - Fix NavBar.
+  - ~~Fix NavBar.
   
   - Deploy app in Vercel.
+ ---
+ ## :calendar: 06-10-2022
+
+### :unlock: WHAT AM I GOING TO DO TODAY?
+
+<p>Today I´m going to fix some small issues and start working on version 2 of the project, which will include swwetalert2, dark mode and who knows!</p>
