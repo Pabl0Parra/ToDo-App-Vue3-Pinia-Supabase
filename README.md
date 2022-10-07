@@ -67,7 +67,7 @@
   
   - Deploy app in Vercel.
  ---
- ## :calendar: 06-10-2022
+ ## :calendar: 07-10-2022
 
 ### :unlock: WHAT AM I GOING TO DO TODAY?
 
