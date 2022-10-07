@@ -71,4 +71,4 @@
 
 ### :unlock: WHAT AM I GOING TO DO TODAY?
 
-<p>Today I´m going to fix some small issues and start working on version 2 of the project, which will include swwetalert2, dark mode and who knows!</p>
+<p>Today I´m going to fix some small issues and start working on version 2 of the project, which will include sweetalert2, dark mode and who knows!</p>
