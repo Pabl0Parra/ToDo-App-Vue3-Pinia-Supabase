@@ -9,11 +9,12 @@
       <p class="text-red-500">{{ errorMsg }}</p>
     </div>
     <!-- Login -->
+
     <form
       @submit.prevent="signIn"
       class="flex flex-col justify-center items-center w-5/12 shadow-lg"
     >
-      <h1 class="text-3xl font-bold text-orange-500 mb-2">LOGIN</h1>
+      <h2 class="text-3xl font-bold text-orange-500 mb-2">LOGIN</h2>
       <div class="w-1/2 text-center">
         <input
           class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
@@ -108,5 +109,14 @@ const signIn = async () => {
 
 .orange:hover {
   background-color: #e36206 !important;
+}
+
+@media screen and (max-width: 600px) {
+  img {
+    display: none;
+  }
+  form {
+    width: 100%;
+  }
 }
 </style>
