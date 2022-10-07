@@ -57,13 +57,13 @@
 <p>All functionalities implemented.</p>
 <p>Today I will work on:</p>
 
-  - ~~Style NewTask component.
+  - ~~Style NewTask component.~~
   
-  - ~~Style Home page component.
+  - ~~Style Home page component.~~
   
-  - ~~Create footer.
+  - ~~Create footer.~~
   
-  - ~~Fix NavBar.
+  - ~~Fix NavBar.~~
   
   - Deploy app in Vercel.
  ---
