@@ -2,6 +2,7 @@
   <nav class="navbar navbar-expand-lg fixed top-0 z-50">
     <div class="container-fluid">
       <a class="navbar-brand fw-bold ms-2" href="#">TASKA</a>
+
       <button
         class="navbar-toggler"
         type="button"
@@ -22,6 +23,12 @@
           </li>
         </ul>
         <form class="d-flex" role="search">
+          <div style="margin-top: 1rem">
+            <p style="color: white">
+              <strong>Welcome</strong>
+              <span class="user-name">{{ emailName[0] }}</span>
+            </p>
+          </div>
           <button
             @click="signOut"
             class="btn logOut fw-bold mb-1"
@@ -108,5 +115,10 @@ async function signOut() {
 
 .container-fluid {
   background-color: #272c48 !important;
+}
+.user-name {
+  color: #f97316 !important;
+  margin-right: 6%;
+  padding: 1rem;
 }
 </style>

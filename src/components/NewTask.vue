@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-center">
     <form
-      class="flex flex-col self-center items-center p-5 mb-2 text-center w-1/2"
+      class="flex flex-col self-center items-center p-5 mb-2 text-center w-3/4"
       @submit.prevent="addTask"
     >
       <input
