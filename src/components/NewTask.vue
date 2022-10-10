@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center">
+  <div class="layout-lg flex flex-col justify-center">
     <form
       class="flex flex-col self-center items-center p-5 mb-2 text-center w-3/4"
       @submit.prevent="addTask"
@@ -22,7 +22,7 @@
         required
       />
       <button
-        class="mt-6 p-3 px-6 self-start text-sm text-blueDark font-bold bg-orange-500 duration-200 border-transparent hover:bg-blueDark hover:text-orange-500 rounded w-full shadow-lg"
+        class="mt-6 p-3 px-6 self-start text-sm text-white font-bold bg-orange-500 duration-200 border-transparent hover:bg-blueDark hover:text-orange-500 rounded w-full shadow-lg"
         @click="addTask()"
       >
         ADD TASK
@@ -63,3 +63,18 @@ const deletMsg = () => {
   errorWhitoutTitle.value = false;
 };
 </script>
+
+<style scoped>
+button:hover {
+  color: #f97316 !important;
+}
+
+@media screen and(min-width: 992px) {
+  .layout-lg {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+}
+</style>

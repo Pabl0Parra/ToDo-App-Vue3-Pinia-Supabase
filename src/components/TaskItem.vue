@@ -1,13 +1,13 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center shadow-lg">
     <div
       :class="{ completed_style: isCompleted }"
-      class="w-3/4 text-center m-5 border-2block p-6 rounded bg-blueDark shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+      class="w-3/4 text-center m-5 border-2block p-6 rounded bg-blueDark shadow-lg dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
     >
-      <hr />
-      <div>
-        <h5>{{ date }}</h5>
-      </div>
+      <h5 class="text-xs text-white font-bold flex flex-row-reverse">
+        {{ date }}
+      </h5>
+      <hr class="text-orange-500" />
       <h5
         class="mb-2 text-2xl font-bold tracking-tight text-orange-500 dark:text-white overflow-hidden"
       >
@@ -19,9 +19,9 @@
       >
         {{ task.title }}
       </h5>
-      <hr class="bg-white" />
+      <hr class="text-orange-500" />
       <h3
-        class="font-bold text-orange-500 dark:text-gray-400 text-ellipsis overflow-hidden pt-5"
+        class="font-bold text-orange-500 dark:text-gray-400 text-ellipsis overflow-hidden"
       >
         DESCRIPTION
       </h3>
@@ -31,24 +31,22 @@
       >
         <em> {{ task.description }}</em>
       </p>
-      <hr class="text-black w-full pt-4" />
-      <p>{{ testing() }}</p>
 
-      <div v-if="showTools" class="inline-flex my-5 gap-5">
+      <div v-if="showTools" class="show-tools-mobile inline-flex gap-5">
         <button
-          class="bg-orange-500 hover:bg-yellow-400 font-bold text-blueDark py-2 px-2"
+          class="bg-orange-500 hover:bg-yellow-400 font-bold text-white hover-text py-2 px-4 rounded"
           @click="addToggle"
         >
           DONE
         </button>
         <button
-          class="bg-orange-500 hover:bg-yellow-400 font-bold text-blueDark py-2 px-4"
+          class="bg-orange-500 hover:bg-yellow-400 font-bold text-white hover-text py-2 px-4 rounded"
           @click="deleteTask"
         >
           DELETE
         </button>
         <button
-          class="bg-orange-500 hover:bg-yellow-400 font-bold text-blueDark py-2 px-4"
+          class="bg-orange-500 hover:bg-yellow-400 font-bold text-white hover-text py-2 px-4 rounded"
           @click="openEditTask"
         >
           EDIT
@@ -60,21 +58,21 @@
           <input
             type="text"
             v-model="titleEdited"
-            placeholder="Nuevo titulo"
-            class="p-2 m-2 border-2 text-center placeholder-taLightMain"
+            placeholder="New title"
+            class="p-2 m-2 mt-4 border-2 text-center placeholder-orange-500 rounded"
           />
 
           <input
             type="text"
             v-model="descriptionEdited"
-            placeholder="Nueva descripcion"
-            class="p-2 m-2 border-2 text-center placeholder-taLightMain"
+            placeholder="New description"
+            class="p-2 m-2 border-2 text-center placeholder-orange-500 rounded"
           />
 
           <button
-            class="w-full mt-6 p-3 px-6 self-start font-bold text-sm text-blueDark bg-orange-500 duration-200 border-transparent hover:bg-yellow-400 hover:text-at-light-grey"
+            class="w-full mt-6 p-3 px-6 self-start font-bold text-sm text-white bg-orange-500 duration-200 border-transparent hover:bg-yellow-400 hover-text rounded"
           >
-            EDIT TASK
+            UPDATE TASK
           </button>
         </form>
       </div>
@@ -144,22 +142,22 @@ const editTask = () => {
   emit("edit-task", editValues);
   editChecked.value = !editChecked.value;
 };
-
-const testing = () => {
-  if (isCompleted === true) {
-    const completed = "The task is completed";
-    return completed;
-  } else {
-    const uncompleted = "The task remains undone";
-    return uncompleted;
-  }
-};
 </script>
 
 <style scoped>
 .completed_style {
   background: rgb(143, 226, 188);
   text-decoration: line-through;
+}
+.hover-text:hover {
+  color: #272c48 !important;
+}
+
+@media screen and (max-width: 600px) {
+  .show-tools-mobile {
+    flex-direction: column;
+    width: 90%;
+  }
 }
 </style>
 

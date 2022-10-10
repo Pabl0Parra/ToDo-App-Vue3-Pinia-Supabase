@@ -4,7 +4,7 @@
       <a class="navbar-brand fw-bold ms-2" href="#">TASKA</a>
 
       <button
-        class="navbar-toggler"
+        class="navbar-toggler hamburguer-bg"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarSupportedContent"
@@ -15,7 +15,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-5">
           <li class="nav-item">
             <a class="nav-link active home" aria-current="page" href="#"
               >Home</a
@@ -23,7 +23,7 @@
           </li>
         </ul>
         <form class="d-flex" role="search">
-          <div style="margin-top: 1rem">
+          <div class="welcome-mobile" style="margin-top: 1rem">
             <p style="color: white">
               <strong>Welcome</strong>
               <span class="user-name">{{ emailName[0] }}</span>
@@ -31,7 +31,7 @@
           </div>
           <button
             @click="signOut"
-            class="btn logOut fw-bold mb-1"
+            class="btn logOut fw-bold mb-1 rounded"
             type="submit"
           >
             LOG OUT
@@ -120,5 +120,26 @@ async function signOut() {
   color: #f97316 !important;
   margin-right: 6%;
   padding: 1rem;
+}
+
+.btn {
+  color: white !important;
+}
+.btn:hover {
+  color: #272c48 !important;
+}
+.hamburguer-bg {
+  background-color: #f97316 !important;
+  border: none;
+}
+
+@media screen and(max-width: 991px) {
+  .welcome-mobile {
+    margin-top: 0 !important;
+  }
+  .btn {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>
