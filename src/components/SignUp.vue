@@ -1,5 +1,5 @@
 <template>
-  <div class="back">
+  <div class="back h-full">
     <div class="max-w-screen-sm mx-auto px-4 py-10">
       <!-- Error Handling -->
       <div v-if="errorMsg" class="mb-10 p-4 rounded-md bg-gray-200 shadow-lg">
@@ -9,7 +9,7 @@
       <!-- Register -->
       <form
         @submit.prevent="signUp()"
-        class="p-8 flex flex-col bg-white rounded-md shadow-lg"
+        class="p-8 flex flex-col justify-evenly bg-white rounded-md shadow-lg"
       >
         <img
           class="logo self-center"
@@ -132,12 +132,13 @@ async function signUp() {
 
 <style scoped>
 .logo {
-  width: 104px;
+  width: 160px;
 }
 .back {
   background-image: url("https://images.unsplash.com/photo-1540569876033-6e5d046a1d77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80");
 
   background-repeat: no-repeat;
+  height: 100 vh;
 }
 
 button {

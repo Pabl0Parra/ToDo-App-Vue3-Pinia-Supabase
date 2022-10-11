@@ -12,7 +12,7 @@
 
     <form
       @submit.prevent="signIn"
-      class="flex flex-col justify-center items-center w-5/12 shadow-lg"
+      class="flex flex-col justify-evenly items-center w-5/12 shadow-lg"
     >
       <img
         class="logo"
@@ -52,8 +52,9 @@
       >
         SIGN IN
       </button>
-      <p class="text-sm mt-6 text-center">Don't have an account?</p>
+      <!-- <p class="text-sm mt-6 text-center"></p> -->
       <p class="text-center px-3 py-1 rounded">
+        Don't have an account?
         <PersonalRouter :route="route" :buttonText="buttonText" />
       </p>
     </form>
@@ -67,7 +68,7 @@ import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { inject } from "vue";
 
-const swal = inject("$swal");
+// const swal = inject("$swal");
 
 // Reference useUserStore
 const userStore = useUserStore();
@@ -100,7 +101,19 @@ const signIn = async () => {
     redirect.push({ path: "/" });
   } catch (error) {
     // displays error message
-    swal("Something went wrong.");
+    // swal("Something went wrong.");
+    Swal.fire({
+      title: "Error",
+      text: "Credentials don´t exist!",
+      icon: "warning",
+      confirmButtonColor: "#f97316",
+      showClass: {
+        popup: "animate__animated animate__fadeInDown",
+      },
+      hideClass: {
+        popup: "animate__animated animate__fadeOutUp",
+      },
+    });
     // hides error message
     // setTimeout(() => {
     //   errorMsg.value = null;
@@ -111,7 +124,7 @@ const signIn = async () => {
 
 <style scoped>
 .logo {
-  width: 160px;
+  width: 280px;
 }
 .orange {
   background-color: #f97316 !important;
