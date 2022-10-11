@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg fixed top-0 z-50">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bold ms-2" href="#">TASKA</a>
+      <img class="logo" src="src/assets/logo-blue.png" alt="logo" />
 
       <button
         class="navbar-toggler hamburguer-bg"
@@ -105,6 +105,9 @@ async function signOut() {
 .home:hover {
   color: white !important;
 }
+.logo {
+  width: 80px;
+}
 .logOut {
   background-color: #f97316 !important;
 }
@@ -136,9 +139,6 @@ async function signOut() {
   background-color: gold !important;
 }
 
-.collapse {
-  border-bottom: 1px solid white;
-}
 @media screen and(max-width: 991px) {
   .welcome-mobile {
     margin-top: 0 !important;
@@ -146,6 +146,9 @@ async function signOut() {
   .btn {
     display: flex;
     flex-direction: column;
+  }
+  .collapse {
+    border-bottom: 1px solid white;
   }
 }
 </style>

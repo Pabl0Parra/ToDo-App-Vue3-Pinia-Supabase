@@ -3,7 +3,7 @@
     <img
       src="https://images.unsplash.com/photo-1540569876033-6e5d046a1d77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
       alt="background"
-      class="object-cover object-center h-screen w-7/12"
+      class="sign-img object-cover object-center h-screen w-7/12"
     />
     <div v-if="errorMsg" class="mb-10 p-4 rounded-md bg-light-grey shadow-lg">
       <p class="text-red-500">{{ errorMsg }}</p>
@@ -14,6 +14,7 @@
       @submit.prevent="signIn"
       class="flex flex-col justify-center items-center w-5/12 shadow-lg"
     >
+      <img class="logo" src="../assets/Whale Done.png" alt="logo" />
       <h2 class="text-3xl font-bold text-orange-500 mb-2">LOGIN</h2>
       <div class="w-1/2 text-center">
         <input
@@ -103,6 +104,9 @@ const signIn = async () => {
 </script>
 
 <style scoped>
+.logo {
+  width: 160px;
+}
 .orange {
   background-color: #f97316 !important;
 }
@@ -112,7 +116,7 @@ const signIn = async () => {
 }
 
 @media screen and (max-width: 600px) {
-  img {
+  .sign-img {
     display: none;
   }
   form {

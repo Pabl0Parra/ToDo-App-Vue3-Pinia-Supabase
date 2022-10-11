@@ -11,6 +11,7 @@
         @submit.prevent="signUp()"
         class="p-8 flex flex-col bg-white rounded-md shadow-lg"
       >
+        <img class="logo self-center" src="../assets/Whale Done.png" />
         <h1 class="text-3xl text-center font-bold text-orange-500 mb-2">
           CREATE YOUR FREE ACCOUNT
         </h1>
@@ -127,6 +128,9 @@ async function signUp() {
 </script>
 
 <style scoped>
+.logo {
+  width: 104px;
+}
 .back {
   background-image: url("https://images.unsplash.com/photo-1540569876033-6e5d046a1d77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80");
 
