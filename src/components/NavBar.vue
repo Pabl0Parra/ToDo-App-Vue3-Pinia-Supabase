@@ -99,7 +99,7 @@ async function signOut() {
   background-color: #272c48 !important;
   height: 70px;
   position: sticky !important;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid white !important;
 }
 .navbar-brand,
 .home {
@@ -151,8 +151,8 @@ async function signOut() {
     display: flex;
     flex-direction: column;
   }
-  .collapse {
+  /* .collapse {
     border-bottom: 1px solid white;
-  }
+  } */
 }
 </style>

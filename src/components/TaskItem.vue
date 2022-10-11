@@ -4,7 +4,7 @@
       :class="{ completed_style: isCompleted }"
       class="w-3/4 text-center m-5 border-2block p-6 rounded bg-blueDark shadow-lg dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
     >
-      <i class="fa-light fa-calendar-lines-pen"></i>
+      <i class="fa-light fa-calendar-lines-pen"></i><span class="date"></span>
       <span class="text-xs text-white font-bold flex flex-row-reverse my-2">
         Date: {{ date }}
       </span>
@@ -86,8 +86,6 @@ import moment from "moment";
 moment.locale("es");
 const date = moment(Date.now()).format("MMMM Do YYYY, h:mm:ss a");
 
-const title = ref("");
-const description = ref("");
 const id = ref(props.task.id);
 
 // a boolean to store a false
@@ -146,7 +144,7 @@ const editTask = () => {
 
 <style scoped>
 .completed_style {
-  background: rgb(143, 226, 188);
+  background: rgb(27, 190, 30);
   text-decoration: line-through;
 }
 .hover-text:hover {
@@ -157,6 +155,7 @@ const editTask = () => {
   .show-tools-mobile {
     flex-direction: column;
     width: 90%;
+    gap: 1 !important;
   }
 }
 </style>

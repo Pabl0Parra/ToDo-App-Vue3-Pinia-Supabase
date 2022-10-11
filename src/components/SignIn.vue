@@ -65,8 +65,11 @@ import { ref, computed } from "vue";
 import PersonalRouter from "./PersonalRouter.vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
+import { inject } from "vue";
 
-// reference useUserStore
+const swal = inject("$swal");
+
+// Reference useUserStore
 const userStore = useUserStore();
 // Route Variables
 const route = "/auth/sign-up";
@@ -79,7 +82,6 @@ const password = ref("");
 // Error Message
 const errorMsg = ref("");
 
-const passwordFieldIcon = ref("");
 //Show hide password variables
 const passwordFieldType = computed(() =>
   hidePassword.value ? "password" : "text"
@@ -98,11 +100,11 @@ const signIn = async () => {
     redirect.push({ path: "/" });
   } catch (error) {
     // displays error message
-    errorMsg.value = `Error: ${error.message}`;
+    swal("Something went wrong.");
     // hides error message
-    setTimeout(() => {
-      errorMsg.value = null;
-    }, 5000);
+    // setTimeout(() => {
+    //   errorMsg.value = null;
+    // }, 5000);
   }
 };
 </script>
