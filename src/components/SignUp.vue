@@ -1,9 +1,5 @@
 <template>
-  <div class="bg-blueDark">
-    <h1 class="text-3xl text-center text-white pt-5 font-bold">
-      Sign Up for free
-    </h1>
-
+  <div class="back">
     <div class="max-w-screen-sm mx-auto px-4 py-10">
       <!-- Error Handling -->
       <div v-if="errorMsg" class="mb-10 p-4 rounded-md bg-gray-200 shadow-lg">
@@ -13,46 +9,44 @@
       <!-- Register -->
       <form
         @submit.prevent="signUp()"
-        class="bg-gradient-to-r from-orange-400 to-orange-800 p-8 flex flex-col bg-light-grey rounded-md shadow-lg"
+        class="p-8 flex flex-col bg-white rounded-md shadow-lg"
       >
-        <h1 class="text-3xl text-center font-bold text-blueDark0 mb-2">
-          CREATE YOUR ACCOUNT
+        <h1 class="text-3xl text-center font-bold text-orange-500 mb-2">
+          CREATE YOUR FREE ACCOUNT
         </h1>
 
         <div class="flex flex-col mb-2">
-          <label for="email" class="mb-1 text-sm text-at-light-green"
-            >Email</label
-          >
+          <label for="email" class="mb-1 text-sm text-gray-500">Email</label>
           <input
             type="text"
             required
-            class="p-2 text-orange-500 focus:outline-none"
+            class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
             id="email"
             v-model="email"
           />
         </div>
 
         <div class="flex flex-col mb-2">
-          <label for="password" class="mb-1 text-sm text-blueDark"
+          <label for="password" class="mb-1 text-sm text-gray-500"
             >Password</label
           >
           <input
             :type="passwordFieldType"
             required
-            class="p-2 text-orange-500 focus:outline-none"
+            class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
             id="password"
             v-model="password"
           />
         </div>
 
         <div class="flex flex-col mb-2">
-          <label for="confirmPassword" class="mb-1 text-sm text-at-light-green"
+          <label for="confirmPassword" class="mb-1 text-sm text-gray-500"
             >Confirm Password</label
           >
           <input
             :type="passwordFieldType"
             required
-            class="p-2 text-orange-500 focus:outline-none"
+            class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
             id="confirmPassword"
             v-model="confirmPassword"
           />
@@ -60,18 +54,16 @@
 
         <button
           type="submit"
-          class="mt-6 py-2 px-6 self-center font-bold text-sm text-orange-500 bg-blueDark duration-200 border-solid border-2 border-transparent hover:border-at-light-green hover:bg-yellow-400 hover:font-bold hover:text-black rounded"
+          class="mt-3 py-2 px-6 self-center font-bold text-white bg-orange-500 duration-200 border-solid border-2 border-transparent hover:bg-orange-700 hover:font-bold rounded"
         >
           SIGN UP
         </button>
         <p class="">
-          <span class="text-sm mt-6 text-center"
-            >Already have an account?
-          </span>
+          <span class="text-sm text-center">Already have an account? </span>
           <PersonalRouter
             :route="route"
             :buttonText="buttonText"
-            class="text-blueDark text-decoration-line: underline"
+            class="text-decoration-line: underline"
           />
         </p>
       </form>
@@ -133,3 +125,15 @@ async function signUp() {
   }, 5000);
 }
 </script>
+
+<style scoped>
+.back {
+  background-image: url("https://images.unsplash.com/photo-1540569876033-6e5d046a1d77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80");
+
+  background-repeat: no-repeat;
+}
+
+button {
+  background-color: #f97316;
+}
+</style>

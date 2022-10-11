@@ -48,7 +48,7 @@
         SIGN IN
       </button>
       <p class="text-sm mt-6 text-center">Don't have an account?</p>
-      <p class="text-center hover:text-white px-3 py-1 rounded">
+      <p class="text-center px-3 py-1 rounded">
         <PersonalRouter :route="route" :buttonText="buttonText" />
       </p>
     </form>
