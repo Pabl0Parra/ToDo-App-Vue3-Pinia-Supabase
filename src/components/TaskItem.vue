@@ -5,36 +5,34 @@
       class="w-3/4 text-center m-5 border-2block p-6 rounded bg-blueDark shadow-lg dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
     >
       <i class="fa-light fa-calendar-lines-pen"></i>
-      <span class="text-xs text-white font-bold flex flex-row-reverse">
+      <span class="text-xs text-white font-bold flex flex-row-reverse my-2">
         Date: {{ date }}
       </span>
       <hr class="text-orange-500" />
       <h5
-        class="mb-2 text-2xl font-bold tracking-tight text-orange-500 dark:text-white overflow-hidden"
+        class="mt-2 mb-2 text-2xl font-bold tracking-tight text-orange-500 dark:text-white overflow-hidden"
       >
         TITLE
       </h5>
       <h5
         @click="openEditTask"
-        class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white text-ellipsis overflow-hidden hover:underline hover:cursor-pointer hover:text-white"
+        class="mt-2 mb-2 text-2xl font-bold tracking-tight text-white dark:text-white text-ellipsis overflow-hidden hover:underline hover:cursor-pointer hover:text-white"
       >
         {{ task.title }}
       </h5>
       <hr class="text-orange-500" />
-      <h3
-        class="font-bold text-orange-500 dark:text-gray-400 text-ellipsis overflow-hidden"
-      >
+      <h3 class="mt-2 font-bold text-orange-500 text-ellipsis overflow-hidden">
         DESCRIPTION
       </h3>
       <p
         @click="openEditTask"
-        class="font-bold text-white dark:text-gray-400 text-ellipsis overflow-hidden pt-3 py-2 hover:underline hover:cursor-pointer hover:text-white"
+        class="mt-2 font-bold text-white text-ellipsis overflow-hidden pt-3 py-2 hover:underline hover:cursor-pointer hover:text-white"
       >
         <em> {{ task.description }}</em>
       </p>
       <hr class="text-orange-500" />
 
-      <div class="show-tools-mobile inline-flex gap-5">
+      <div class="show-tools-mobile inline-flex gap-5 mt-3">
         <button
           class="bg-orange-500 hover:bg-yellow-400 font-bold text-white hover-text py-2 px-4 rounded"
           @click="addToggle"
@@ -56,7 +54,7 @@
       </div>
 
       <div v-if="editChecked">
-        <form @submit.prevent="editTask" class="flex flex-col py-2">
+        <form @submit.prevent="editTask" class="flex flex-col">
           <input
             type="text"
             v-model="titleEdited"
