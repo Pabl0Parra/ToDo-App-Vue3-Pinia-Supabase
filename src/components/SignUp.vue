@@ -11,7 +11,10 @@
         @submit.prevent="signUp()"
         class="p-8 flex flex-col bg-white rounded-md shadow-lg"
       >
-        <img class="logo self-center" src="../assets/Whale Done.png" />
+        <img
+          class="logo self-center"
+          src="https://res.cloudinary.com/dcwx2biey/image/upload/v1665501348/Whale_Done_om7mfa.png"
+        />
         <h1 class="text-3xl text-center font-bold text-orange-500 mb-2">
           CREATE YOUR FREE ACCOUNT
         </h1>

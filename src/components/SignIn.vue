@@ -14,7 +14,11 @@
       @submit.prevent="signIn"
       class="flex flex-col justify-center items-center w-5/12 shadow-lg"
     >
-      <img class="logo" src="../assets/Whale Done.png" alt="logo" />
+      <img
+        class="logo"
+        src="https://res.cloudinary.com/dcwx2biey/image/upload/v1665501348/Whale_Done_om7mfa.png"
+        alt="logo"
+      />
       <h2 class="text-3xl font-bold text-orange-500 mb-2">LOGIN</h2>
       <div class="w-1/2 text-center">
         <input

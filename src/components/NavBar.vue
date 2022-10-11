@@ -1,7 +1,11 @@
 <template>
   <nav class="navbar navbar-expand-lg fixed top-0 z-50">
     <div class="container-fluid">
-      <img class="logo" src="src/assets/logo-blue.png" alt="logo" />
+      <img
+        class="logo"
+        src="https://res.cloudinary.com/dcwx2biey/image/upload/v1665501348/logo-blue_phk5di.png"
+        alt="logo"
+      />
 
       <button
         class="navbar-toggler hamburguer-bg"
