@@ -56,7 +56,7 @@
       </div>
 
       <div v-if="editChecked">
-        <form @submit.prevent="editTask" class="flex flex-col">
+        <form @submit.prevent="editTask" class="flex flex-col py-2">
           <input
             type="text"
             v-model="titleEdited"
