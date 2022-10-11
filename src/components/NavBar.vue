@@ -132,6 +132,9 @@ async function signOut() {
   background-color: #f97316 !important;
   border: none;
 }
+.hamburguer-bg:hover {
+  background-color: gold !important;
+}
 
 @media screen and(max-width: 991px) {
   .welcome-mobile {

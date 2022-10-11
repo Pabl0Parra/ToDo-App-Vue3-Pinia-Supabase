@@ -5,7 +5,7 @@
       class="w-3/4 text-center m-5 border-2block p-6 rounded bg-blueDark shadow-lg dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
     >
       <h5 class="text-xs text-white font-bold flex flex-row-reverse">
-        {{ date }}
+        Created on: {{ date }}
       </h5>
       <hr class="text-orange-500" />
       <h5
