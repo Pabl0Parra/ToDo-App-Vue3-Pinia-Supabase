@@ -32,10 +32,6 @@
       {{ errorMessage }}
     </div>
   </div>
-  <span class="flex justify-center text-sm pb-3 text-center"
-    >**Note: Click on title or description below to update it, delete it or mark
-    it as done**</span
-  >
 </template>
 
 <script setup>

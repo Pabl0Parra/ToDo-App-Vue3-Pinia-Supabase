@@ -14,7 +14,7 @@
         TITLE
       </h5>
       <h5
-        @click="showToolsHandler"
+        @click="openEditTask"
         class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white text-ellipsis overflow-hidden hover:underline hover:cursor-pointer hover:text-white"
       >
         {{ task.title }}
@@ -26,13 +26,14 @@
         DESCRIPTION
       </h3>
       <p
-        @click="showToolsHandler"
+        @click="openEditTask"
         class="font-bold text-white dark:text-gray-400 text-ellipsis overflow-hidden pt-3 py-2 hover:underline hover:cursor-pointer hover:text-white"
       >
         <em> {{ task.description }}</em>
       </p>
+      <hr class="text-orange-500" />
 
-      <div v-if="showTools" class="show-tools-mobile inline-flex gap-5">
+      <div class="show-tools-mobile inline-flex gap-5">
         <button
           class="bg-orange-500 hover:bg-yellow-400 font-bold text-white hover-text py-2 px-4 rounded"
           @click="addToggle"
@@ -70,7 +71,7 @@
           />
 
           <button
-            class="w-full mt-6 p-3 px-6 self-start font-bold text-sm text-white bg-orange-500 duration-200 border-transparent hover:bg-yellow-400 hover-text rounded"
+            class="w-full mt-6 p-3 px-6 self-start font-bold text-white bg-orange-500 duration-200 border-transparent hover:bg-yellow-400 hover-text rounded"
           >
             UPDATE TASK
           </button>
