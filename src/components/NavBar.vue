@@ -136,6 +136,9 @@ async function signOut() {
   background-color: gold !important;
 }
 
+.collapse {
+  border-bottom: 1px solid white;
+}
 @media screen and(max-width: 991px) {
   .welcome-mobile {
     margin-top: 0 !important;

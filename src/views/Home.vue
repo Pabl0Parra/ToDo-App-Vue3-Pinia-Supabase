@@ -3,6 +3,7 @@
 
   <div class="text-center bg-gray-200">
     <h1 class="text-4xl pt-5 font-bold text-orange-500">ADD A NEW TASK</h1>
+    <i class="mdi mdi-calendar-clock date"></i>
     <h3 class="text-xl pt-3 text-gray-500">
       {{ date }}
     </h3>

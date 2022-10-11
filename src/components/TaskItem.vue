@@ -4,9 +4,10 @@
       :class="{ completed_style: isCompleted }"
       class="w-3/4 text-center m-5 border-2block p-6 rounded bg-blueDark shadow-lg dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
     >
-      <h5 class="text-xs text-white font-bold flex flex-row-reverse">
-        Created on: {{ date }}
-      </h5>
+      <i class="fa-light fa-calendar-lines-pen"></i>
+      <span class="text-xs text-white font-bold flex flex-row-reverse">
+        Date: {{ date }}
+      </span>
       <hr class="text-orange-500" />
       <h5
         class="mb-2 text-2xl font-bold tracking-tight text-orange-500 dark:text-white overflow-hidden"
@@ -60,14 +61,14 @@
             type="text"
             v-model="titleEdited"
             placeholder="New title"
-            class="p-2 m-2 mt-4 border-2 text-center placeholder-orange-500 rounded"
+            class="p-2 m-2 mt-4 text-center text-orange-500 rounded focus:outline-none"
           />
 
-          <input
+          <textarea
             type="text"
             v-model="descriptionEdited"
             placeholder="New description"
-            class="p-2 m-2 border-2 text-center placeholder-orange-500 rounded"
+            class="p-2 m-2 text-center text-orange-500 rounded focus:outline-none"
           />
 
           <button
