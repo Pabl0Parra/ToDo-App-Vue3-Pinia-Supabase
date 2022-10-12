@@ -99,10 +99,10 @@ let showTools = ref(false);
 let isCompleted = ref(props.task.isCompleted);
 
 // Function to handle the edit dialogue where the inputField is displayed and the string used to store the value of the inputField will be used here to save the value as a prop on this function.
-const showToolsHandler = () => {
-  showTools.value = !showTools.value;
-  editChecked.value = false;
-};
+// const showToolsHandler = () => {
+//   showTools.value = !showTools.value;
+//   editChecked.value = false;
+// };
 
 const props = defineProps({
   task: Object,

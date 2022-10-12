@@ -5,9 +5,7 @@
       alt="background"
       class="sign-img object-cover object-center h-screen w-7/12"
     />
-    <div v-if="errorMsg" class="mb-10 p-4 rounded-md bg-light-grey shadow-lg">
-      <p class="text-red-500">{{ errorMsg }}</p>
-    </div>
+
     <!-- Login -->
 
     <form
@@ -66,9 +64,6 @@ import { ref, computed } from "vue";
 import PersonalRouter from "./PersonalRouter.vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
-import { inject } from "vue";
-
-// const swal = inject("$swal");
 
 // Reference useUserStore
 const userStore = useUserStore();
@@ -100,11 +95,10 @@ const signIn = async () => {
     // redirects user to the homeView
     redirect.push({ path: "/" });
   } catch (error) {
-    // displays error message
-    // swal("Something went wrong.");
+    // displays error message with SweetAlert2
     Swal.fire({
       title: "Error",
-      text: "Credentials don´t exist!",
+      text: (errorMsg.value = `Error: ${error.message}`),
       icon: "warning",
       confirmButtonColor: "#f97316",
       showClass: {
@@ -114,10 +108,6 @@ const signIn = async () => {
         popup: "animate__animated animate__fadeOutUp",
       },
     });
-    // hides error message
-    // setTimeout(() => {
-    //   errorMsg.value = null;
-    // }, 5000);
   }
 };
 </script>

@@ -2,9 +2,9 @@
   <div class="back h-full">
     <div class="max-w-screen-sm mx-auto px-4 py-10">
       <!-- Error Handling -->
-      <div v-if="errorMsg" class="mb-10 p-4 rounded-md bg-gray-200 shadow-lg">
+      <!-- <div v-if="errorMsg" class="mb-10 p-4 rounded-md bg-gray-200 shadow-lg">
         <p class="text-red-500">{{ errorMsg }}</p>
-      </div>
+      </div> -->
 
       <!-- Register -->
       <form
@@ -93,17 +93,11 @@ const confirmPassword = ref(null);
 // Error Message
 const errorMsg = ref(null);
 
-// Show hide password variable
+// Show hide passwords variables (both passwords)
 const passwordFieldType = computed(() =>
   hidePassword.value ? "password" : "text"
 );
 const hidePassword = ref(true);
-
-// Show hide confirmPassword variable
-const confirmPasswordFieldType = computed(() =>
-  hideConfirmPassword.value ? "confirmPassword" : "text"
-);
-const hideConfirmPassword = ref(true);
 
 // Router to push user once SignedUp to Log In
 const redirect = useRouter();
@@ -115,6 +109,12 @@ async function signUp() {
       await useUserStore().signUp(email.value, password.value);
 
       redirect.push({ path: "/auth/login" });
+      Swal.fire({
+        title: "Congratulations",
+        text: `Your account was created`,
+        icon: "success",
+        confirmButtonColor: "#f97316",
+      });
     } catch (error) {
       errorMsg.value = error.message;
       setTimeout(() => {
@@ -123,22 +123,26 @@ async function signUp() {
     }
     return;
   }
-  errorMsg.value = "Passwords do not match";
-  setTimeout(() => {
-    errorMsg.value = null;
-  }, 5000);
+  // alert("passwords wrong");
+  Swal.fire({
+    title: "Error",
+    text: `Passwords do not match`,
+    icon: "error",
+    confirmButtonColor: "#f97316",
+  });
 }
 </script>
 
 <style scoped>
 .logo {
-  width: 160px;
+  width: 120px;
 }
 .back {
   background-image: url("https://images.unsplash.com/photo-1540569876033-6e5d046a1d77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80");
 
   background-repeat: no-repeat;
   height: 100 vh;
+  width: 100%;
 }
 
 button {
