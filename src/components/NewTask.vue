@@ -2,7 +2,6 @@
   <div class="layout-lg flex flex-col justify-center">
     <form
       class="flex flex-col self-center items-center p-5 mb-2 text-center w-3/4"
-      @submit.prevent="addTask"
     >
       <input
         type="text"
@@ -10,7 +9,6 @@
         id="title"
         v-model="title"
         class="p-3 m-2 focus:outline-none rounded w-full text-center text-orange-500 shadow-lg"
-        required
       />
 
       <textarea
@@ -19,11 +17,10 @@
         id="description"
         v-model="description"
         class="p-3 m-2 focus:outline-none rounded w-full text-center text-orange-500 shadow-lg"
-        required
       />
       <button
         class="mt-6 p-3 px-6 self-start text-sm text-white font-bold bg-orange-500 duration-200 border-transparent hover:bg-blueDark hover:text-orange-500 rounded w-full shadow-lg"
-        @click="addTask()"
+        @submit="addTask"
       >
         ADD TASK
       </button>

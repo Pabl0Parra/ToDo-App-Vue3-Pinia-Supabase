@@ -9,19 +9,20 @@
         Date: {{ date }}
       </span>
       <hr class="text-orange-500" />
+      <button @click="test">TEST</button>
       <h5
-        class="mt-2 mb-2 text-2xl font-bold tracking-tight text-orange-500 dark:text-white overflow-hidden"
+        class="mt-2 mb-2 text-2xl font-bold tracking-tight text-orange-500 overflow-hidden"
       >
         TITLE
       </h5>
       <h5
         @click="openEditTask"
-        class="mt-2 mb-2 text-2xl font-bold tracking-tight text-white dark:text-white text-ellipsis overflow-hidden hover:underline hover:cursor-pointer hover:text-white"
+        class="mt-2 mb-2 text-2xl font-bold tracking-tight text-white text-ellipsis overflow-hidden hover:underline hover:cursor-pointer hover:text-white"
       >
         {{ task.title }}
       </h5>
       <hr class="text-orange-500" />
-      <h3 class="mt-2 font-bold text-orange-500 text-ellipsis overflow-hidden">
+      <h3 class="mt-2 font-bold text-2xl text-orange-500 overflow-hidden">
         DESCRIPTION
       </h3>
       <p
@@ -120,8 +121,21 @@ const addToggle = () => {
 };
 
 // Function to emmit a custom event emit() that takes 2 parameters a name for the custom event and the value that will be send via the prop to the parent component. This function can control the removal of  the task on the homeview.
+
 const deleteTask = () => {
-  emit("delete-task", props.task.id);
+  // Wait for the user to press a button...
+  Swal.fire({
+    title: "Are you sure you want to delete this task?",
+    showCancelButton: true,
+    confirmButtonText: "Confirm",
+    cancelButtonText: "Cancel",
+    icon: "warning",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      emit("delete-task", props.task.id);
+      Swal.fire("Poof!", "Your file has been deleted!", "success");
+    }
+  });
 };
 
 const openEditTask = () => {
@@ -139,6 +153,40 @@ const editTask = () => {
   };
   emit("edit-task", editValues);
   editChecked.value = !editChecked.value;
+};
+
+const test = async () => {
+  console.log(titleEdited.value);
+  console.log(props.task.title);
+  const { value: formValues } = await Swal.fire({
+    title: "Multiple inputs",
+    html:
+      `<input id="swal-input1" class="swal2-input" placeholder="${props.task.title}" required>` +
+      `<input id="swal-input2" class="swal2-input" placeholder="${props.task.description}" required >`,
+    focusConfirm: false,
+    preConfirm: () => {
+      return [
+        document.getElementById("swal-input1").value,
+        document.getElementById("swal-input2").value,
+      ];
+    },
+  });
+
+  if (formValues[0] === "" || formValues[1] === "") {
+    console.log("Title cannot be empty");
+  }
+
+  if (formValues) {
+    Swal.fire(console.log(JSON.stringify(formValues)));
+
+    const editValues = {
+      newTitle: formValues[0],
+      newDescription: formValues[1],
+      oldIdValue: props.task,
+    };
+    emit("edit-task", editValues);
+    editChecked.value = !editChecked.value;
+  }
 };
 </script>
 

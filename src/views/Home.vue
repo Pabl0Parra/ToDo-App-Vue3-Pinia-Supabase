@@ -26,7 +26,7 @@
 <script setup>
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
-import { ref } from "vue";
+import { ref, onUpdated } from "vue";
 import { useTaskStore } from "../stores/task.js";
 import NavBar from "../components/NavBar.vue";
 import Footer from "../components/Footer.vue";
@@ -59,6 +59,28 @@ const deleteTask = async (id) => {
   await taskStore.deleteTask(id);
   getTasks();
 };
+
+// const deleteTask = async (id) => {
+//   // Wait for the user to press a button...
+//   await Swal.fire({
+//     title: "Are you sure you want to delete this task?",
+//     showCancelButton: true,
+//     confirmButtonText: "Confirm",
+//     cancelButtonText: "Cancel",
+//     icon: "warning",
+//   }).then((result) => {
+//     if (result.isConfirmed) {
+//       Swal.fire("Poof!", "Your file has been deleted!", "success");
+//       console.log()
+//       taskStore.deleteTask(id);
+//       getTasks();
+//     }
+//   });
+// };
+
+// onUpdated(() => {
+//   getTasks()
+// })
 
 const editTask = async (task) => {
   const newTitle = task.newTitle;
