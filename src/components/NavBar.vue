@@ -50,15 +50,8 @@
 import { useUserStore } from "../stores/user.js";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-//constant to save a variable that will hold the use router method
-const route = "/";
 
-const error = ref("");
-const errorMsg = ref(null);
-
-const userStore = useUserStore();
 // constant to save a variable that will get the user from store with a computed function imported from vue
-
 const getUser = useUserStore().user;
 // constant that calls user email from the useUSerStore
 const userEmail = getUser.email;
@@ -72,26 +65,6 @@ async function signOut() {
   await useUserStore().signOut();
   redirect.push({ path: "/auth/login" });
 }
-// const signOut = async () => {
-//   try {
-//     // calls the user store and send the users info to backend to signOut()
-//     // console.log("entering try catch");
-//     // console.log(userStore);
-//     // console.log(userStore.signOut());
-
-//     // redirects user to the homeView
-//     console.log("redirección");
-//     redirect.push({ path: "/auth/login" });
-//     await userStore().signOut();
-//   } catch (error) {
-//     // displays error message
-//     errorMsg.value = `Error: ${error.message}`;
-//     // hides error message
-//     setTimeout(() => {
-//       errorMsg.value = null;
-//     }, 5000);
-//   }
-// };
 </script>
 
 <style scope>
