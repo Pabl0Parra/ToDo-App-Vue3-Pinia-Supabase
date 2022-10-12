@@ -116,16 +116,15 @@ async function signOut() {
   background-color: gold !important;
 }
 
-@media screen and(max-width: 991px) {
+/* @media screen and(max-width: 991px) {
   .welcome-mobile {
     margin-top: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
   .btn {
     display: flex;
     flex-direction: column;
-  }
-  /* .collapse {
-    border-bottom: 1px solid white;
   } */
-}
+/* } */
 </style>

@@ -23,7 +23,6 @@
           <label for="email" class="mb-1 text-sm text-gray-500">Email</label>
           <input
             type="text"
-            required
             class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
             id="email"
             v-model="email"
@@ -63,7 +62,7 @@
           SIGN UP
         </button>
         <p class="">
-          <span class="text-sm text-center">Already have an account? </span>
+          <span class="text-sm">Already have an account? </span>
           <PersonalRouter
             :route="route"
             :buttonText="buttonText"
@@ -86,12 +85,12 @@ const route = "/auth/login";
 const buttonText = "Login";
 
 // Input Fields
-const email = ref(null);
-const password = ref(null);
-const confirmPassword = ref(null);
+const email = ref("");
+const password = ref("");
+const confirmPassword = ref("");
 
 // Error Message
-const errorMsg = ref(null);
+const errorMsg = ref("");
 
 // Show hide passwords variables (both passwords)
 const passwordFieldType = computed(() =>
@@ -104,33 +103,87 @@ const redirect = useRouter();
 
 // function to SignUp user to supaBase with a timeOut() method for showing the error
 async function signUp() {
-  if (password.value === confirmPassword.value) {
-    try {
-      await useUserStore().signUp(email.value, password.value);
+  if (validateInputs()) {
+    if (password.value === confirmPassword.value) {
+      try {
+        await useUserStore().signUp(email.value, password.value);
 
-      redirect.push({ path: "/auth/login" });
-      Swal.fire({
-        title: "Congratulations",
-        text: `Your account was created`,
-        icon: "success",
-        confirmButtonColor: "#f97316",
-      });
-    } catch (error) {
-      errorMsg.value = error.message;
-      setTimeout(() => {
-        errorMsg.value = null;
-      }, 5000);
+        redirect.push({ path: "/auth/login" });
+        // success msg sweetalert2
+        Swal.fire({
+          title: "Congratulations",
+          text: `Your account was created`,
+          icon: "success",
+          confirmButtonColor: "#f97316",
+        });
+      } catch (error) {
+        Swal.fire({
+          title: "Error",
+          text: (errorMsg.value = `Error: ${error.message}`),
+          icon: "warning",
+          confirmButtonColor: "#f97316",
+        });
+      }
+      return;
     }
-    return;
+    // alert error through sweetalert2
+    Swal.fire({
+      title: "Error",
+      text: `Passwords do not match`,
+      icon: "error",
+      confirmButtonColor: "#f97316",
+    });
   }
-  // alert("passwords wrong");
-  Swal.fire({
-    title: "Error",
-    text: `Passwords do not match`,
-    icon: "error",
-    confirmButtonColor: "#f97316",
-  });
 }
+
+const isValidEmail = (email) => {
+  const emailRegEx =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+  return emailRegEx.test(String(email).toLowerCase());
+};
+
+const validateInputs = () => {
+  const emailValue = email.value.trim();
+
+  let check = true;
+
+  if (emailValue == "") {
+    // setError(email, "Email is required");
+    Swal.fire({
+      title: "Error",
+      text: `Email is required`,
+      icon: "warning",
+      confirmButtonColor: "#f97316",
+      showClass: {
+        popup: "animate__animated animate__zoomInDown",
+      },
+      hideClass: {
+        popup: "animate__animated animate__zoomOutDown",
+      },
+    });
+    check = false;
+  } else if (!isValidEmail(emailValue)) {
+    // setError(email, "Provide a valid email, like john@gmail.com");
+    Swal.fire({
+      title: "Provide a valid email",
+      text: `Enter something like john@gmail.com`,
+      icon: "warning",
+      confirmButtonColor: "#f97316",
+      showClass: {
+        popup: "animate__animated animate__zoomInUp",
+      },
+      hideClass: {
+        popup: "animate__animated animate__zoomOutUp",
+      },
+    });
+    check = false;
+  }
+  //  else {
+  //   setSuccess(email);
+  // }
+  return check;
+};
 </script>
 
 <style scoped>
