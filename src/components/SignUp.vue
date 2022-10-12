@@ -149,7 +149,6 @@ const validateInputs = () => {
   let check = true;
 
   if (emailValue == "") {
-    // setError(email, "Email is required");
     Swal.fire({
       title: "Error",
       text: `Email is required`,
@@ -164,7 +163,6 @@ const validateInputs = () => {
     });
     check = false;
   } else if (!isValidEmail(emailValue)) {
-    // setError(email, "Provide a valid email, like john@gmail.com");
     Swal.fire({
       title: "Provide a valid email",
       text: `Enter something like john@gmail.com`,
@@ -179,9 +177,7 @@ const validateInputs = () => {
     });
     check = false;
   }
-  //  else {
-  //   setSuccess(email);
-  // }
+
   return check;
 };
 </script>

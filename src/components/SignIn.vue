@@ -25,7 +25,6 @@
           placeholder="Email"
           v-model="email"
           id="email"
-          required
         />
 
         <input
@@ -89,26 +88,73 @@ const redirect = useRouter();
 
 // Arrow function to Signin user to supaBase
 const signIn = async () => {
-  try {
-    // calls the user store and send the users info to backend to logIn
-    await userStore.signIn(email.value, password.value);
-    // redirects user to the homeView
-    redirect.push({ path: "/" });
-  } catch (error) {
-    // displays error message with SweetAlert2
+  if (validateInputs()) {
+    try {
+      // calls the user store and send the users info to backend to logIn
+      await userStore.signIn(email.value, password.value);
+      // redirects user to the homeView
+      redirect.push({ path: "/" });
+    } catch (error) {
+      // displays error message with SweetAlert2
+      Swal.fire({
+        title: "Error",
+        text: (errorMsg.value = `Error: ${error.message}`),
+        icon: "warning",
+        confirmButtonColor: "#f97316",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutDown",
+        },
+      });
+    }
+  }
+};
+
+const isValidEmail = (email) => {
+  const emailRegEx =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+  return emailRegEx.test(String(email).toLowerCase());
+};
+
+const validateInputs = () => {
+  const emailValue = email.value.trim();
+
+  let check = true;
+
+  if (emailValue == "") {
     Swal.fire({
       title: "Error",
-      text: (errorMsg.value = `Error: ${error.message}`),
+      text: `Email is required`,
       icon: "warning",
       confirmButtonColor: "#f97316",
       showClass: {
-        popup: "animate__animated animate__fadeInDown",
+        popup: "animate__animated animate__zoomInDown",
       },
       hideClass: {
-        popup: "animate__animated animate__fadeOutUp",
+        popup: "animate__animated animate__zoomOutDown",
       },
     });
+    check = false;
+  } else if (!isValidEmail(emailValue)) {
+    Swal.fire({
+      title: "Provide a valid email",
+      text: `Enter something like john@gmail.com`,
+      icon: "warning",
+      confirmButtonColor: "#f97316",
+      showClass: {
+        popup: "animate__animated animate__zoomInUp",
+      },
+      hideClass: {
+        popup: "animate__animated animate__zoomOutUp",
+      },
+    });
+    check = false;
   }
+
+  return check;
 };
 </script>
 
