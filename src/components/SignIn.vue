@@ -103,10 +103,10 @@ const signIn = async () => {
         icon: "warning",
         confirmButtonColor: "#f97316",
         showClass: {
-          popup: "animate__animated animate__fadeInDown",
+          popup: "animate__animated animate__rotateInDownRight",
         },
         hideClass: {
-          popup: "animate__animated animate__fadeOutDown",
+          popup: "animate__animated animate__rollOut",
         },
       });
     }
@@ -139,20 +139,22 @@ const validateInputs = () => {
       },
     });
     check = false;
-  } else if (!isValidEmail(emailValue)) {
-    Swal.fire({
-      title: "Provide a valid email",
-      text: `Enter something like john@gmail.com`,
-      icon: "warning",
-      confirmButtonColor: "#f97316",
-      showClass: {
-        popup: "animate__animated animate__zoomInUp",
-      },
-      hideClass: {
-        popup: "animate__animated animate__zoomOutUp",
-      },
-    });
-    check = false;
+  } else {
+    if (!isValidEmail(emailValue)) {
+      Swal.fire({
+        title: "Provide a valid email",
+        text: `Enter something like john@gmail.com`,
+        icon: "warning",
+        confirmButtonColor: "#f97316",
+        showClass: {
+          popup: "animate__animated animate__zoomInUp",
+        },
+        hideClass: {
+          popup: "animate__animated animate__zoomOutUp",
+        },
+      });
+      check = false;
+    }
   }
 
   return check;

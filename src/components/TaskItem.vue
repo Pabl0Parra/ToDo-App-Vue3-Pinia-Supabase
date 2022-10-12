@@ -9,7 +9,6 @@
         Date: {{ date }}
       </span>
       <hr class="text-orange-500" />
-      <button @click="test">TEST</button>
       <h5
         class="mt-2 mb-2 text-2xl font-bold tracking-tight text-orange-500 overflow-hidden"
       >
@@ -48,34 +47,10 @@
         </button>
         <button
           class="bg-orange-500 hover:bg-yellow-400 font-bold text-white hover-text py-2 px-4 rounded"
-          @click="openEditTask"
+          @click="editTask"
         >
           EDIT
         </button>
-      </div>
-
-      <div v-if="editChecked">
-        <form @submit.prevent="editTask" class="flex flex-col">
-          <input
-            type="text"
-            v-model="titleEdited"
-            placeholder="New title"
-            class="p-2 m-2 mt-4 text-center text-orange-500 rounded focus:outline-none"
-          />
-
-          <textarea
-            type="text"
-            v-model="descriptionEdited"
-            placeholder="New description"
-            class="p-2 m-2 text-center text-orange-500 rounded focus:outline-none"
-          />
-
-          <button
-            class="w-full mt-6 p-3 px-6 self-start font-bold text-white bg-orange-500 duration-200 border-transparent hover:bg-yellow-400 hover-text rounded"
-          >
-            UPDATE TASK
-          </button>
-        </form>
       </div>
     </div>
   </div>
@@ -92,18 +67,7 @@ const id = ref(props.task.id);
 // a boolean to store a false
 const editChecked = ref(false);
 
-const titleEdited = ref("");
-const descriptionEdited = ref("");
-
-let showTools = ref(false);
-
 let isCompleted = ref(props.task.isCompleted);
-
-// Function to handle the edit dialogue where the inputField is displayed and the string used to store the value of the inputField will be used here to save the value as a prop on this function.
-// const showToolsHandler = () => {
-//   showTools.value = !showTools.value;
-//   editChecked.value = false;
-// };
 
 const props = defineProps({
   task: Object,
@@ -129,41 +93,40 @@ const deleteTask = () => {
     showCancelButton: true,
     confirmButtonText: "Confirm",
     cancelButtonText: "Cancel",
+    confirmButtonColor: "#f97316",
     icon: "warning",
   }).then((result) => {
     if (result.isConfirmed) {
       emit("delete-task", props.task.id);
-      Swal.fire("Poof!", "Your file has been deleted!", "success");
+      Swal.fire({
+        title: "Poof!",
+        text: "Your file has been deleted!",
+        icon: "success",
+        confirmButtonColor: "#f97316",
+      });
     }
   });
 };
 
-const openEditTask = () => {
-  editChecked.value = !editChecked.value;
-  titleEdited.value = props.task.title;
-  descriptionEdited.value = props.task.description;
-};
-
 // Function to edit the task information that you decided that the user can edit. This function's body takes in a conditional that first checks if the value of the task [either title and description or just title] is empty which if true it runs the function used to handle the error on hint4. Else, the conditional sets the first mentioned boolean data property on hint2 back to its inital boolean value to hide the error message and repeat the same for the data property mentioned 4th on hint2; a constant that stores an object that holds the oldValue from the prop item and the value of the task coming from the data property mentioned 3rd on hint2; a custom event emit() that takes 2 parameters a name for the custom event and the value from the object used on this part of the conditional and lastly this part of the conditional sets the value of input field to an empty string to clear it from the ui.
-const editTask = () => {
-  const editValues = {
-    newTitle: titleEdited.value,
-    newDescription: descriptionEdited.value,
-    oldIdValue: props.task,
-  };
-  emit("edit-task", editValues);
-  editChecked.value = !editChecked.value;
-};
-
-const test = async () => {
-  console.log(titleEdited.value);
-  console.log(props.task.title);
+const editTask = async () => {
   const { value: formValues } = await Swal.fire({
-    title: "Multiple inputs",
+    icon: "info",
+    showCancelButton: true,
+    confirmButtonText: "Update Task",
+    cancelButtonText: "Cancel",
+    confirmButtonColor: "#f97316",
+    title: "Enter new title & description",
     html:
       `<input id="swal-input1" class="swal2-input" placeholder="${props.task.title}" required>` +
       `<input id="swal-input2" class="swal2-input" placeholder="${props.task.description}" required >`,
     focusConfirm: false,
+    showClass: {
+      popup: "animate__animated animate__zoomInDown",
+    },
+    hideClass: {
+      popup: "animate__animated animate__zoomOutDown",
+    },
     preConfirm: () => {
       return [
         document.getElementById("swal-input1").value,
@@ -173,12 +136,21 @@ const test = async () => {
   });
 
   if (formValues[0] === "" || formValues[1] === "") {
-    console.log("Title cannot be empty");
+    Swal.fire({
+      title: "Error",
+      text: "Please try again, fields cannot be empty",
+      icon: "error",
+      confirmButtonColor: "#f97316",
+      showClass: {
+        popup: "animate__animated animate__rubberBand",
+      },
+      hideClass: {
+        popup: "animate__animated animate__rollOut",
+      },
+    });
   }
 
   if (formValues) {
-    Swal.fire(console.log(JSON.stringify(formValues)));
-
     const editValues = {
       newTitle: formValues[0],
       newDescription: formValues[1],
