@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg fixed top-0 z-50">
-    <div class="container-fluid">
+    <div class="container-fluid border-2 border-solid border-white">
       <img
         class="logo"
         src="https://res.cloudinary.com/dcwx2biey/image/upload/v1665501348/logo-blue_phk5di.png"
@@ -21,7 +21,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-5">
           <li class="nav-item">
-            <a class="nav-link active home" aria-current="page" href="#"
+            <a class="nav-link active home fw-bold" aria-current="page" href="#"
               >Home</a
             >
           </li>
@@ -72,7 +72,7 @@ async function signOut() {
   background-color: #272c48 !important;
   height: 70px;
   position: sticky !important;
-  border-bottom: 1px solid white !important;
+  border-bottom: 1px solid white;
 }
 .navbar-brand,
 .home {
@@ -95,6 +95,9 @@ async function signOut() {
 
 .container-fluid {
   background-color: #272c48 !important;
+  -webkit-box-shadow: 0px 13px 10px -6px rgba(227, 227, 227, 0.91);
+  -moz-box-shadow: 0px 13px 10px -6px rgba(227, 227, 227, 0.91);
+  box-shadow: 0px 13px 10px -6px rgba(227, 227, 227, 0.91);
 }
 .user-name {
   color: #f97316 !important;
@@ -115,16 +118,4 @@ async function signOut() {
 .hamburguer-bg:hover {
   background-color: gold !important;
 }
-
-/* @media screen and(max-width: 991px) {
-  .welcome-mobile {
-    margin-top: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  .btn {
-    display: flex;
-    flex-direction: column;
-  } */
-/* } */
 </style>

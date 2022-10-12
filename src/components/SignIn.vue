@@ -88,6 +88,7 @@ const redirect = useRouter();
 
 // Arrow function to Signin user to supaBase
 const signIn = async () => {
+  // validates only email to not overkill app with floating windows (password = required only validation)
   if (validateInputs()) {
     try {
       // calls the user store and send the users info to backend to logIn
@@ -126,9 +127,9 @@ const validateInputs = () => {
 
   if (emailValue == "") {
     Swal.fire({
-      title: "Error",
-      text: `Email is required`,
-      icon: "warning",
+      title: "Email is required",
+      text: `Please, enter an email`,
+      icon: "info",
       confirmButtonColor: "#f97316",
       showClass: {
         popup: "animate__animated animate__zoomInDown",

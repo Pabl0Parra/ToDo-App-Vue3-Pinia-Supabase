@@ -111,7 +111,7 @@ const props = defineProps({
 // Store the custom emit events that will be used to call the functions of the homeView for editing, deleting and toggling the status[completed, not complted] of the taskItem
 const emit = defineEmits(["delete-task", "add-toogle", "edit-task"]);
 
-// *********************** Define functions that trigger the emits ***********************************
+// *********************** Define functions that trigger the emits ************************
 
 // Function to emmit a custom event emit() that takes 2 parameters a name for the custom event and the value that will be send via the prop to the parent component. This function can control the toggle completion of the task on the homeview.
 const addToggle = () => {
