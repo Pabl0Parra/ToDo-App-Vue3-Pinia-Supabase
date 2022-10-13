@@ -15,7 +15,7 @@
         TITLE
       </h5>
       <h5
-        @click="openEditTask"
+        @click="editTask"
         class="mt-2 mb-2 text-2xl font-bold tracking-tight text-white text-ellipsis overflow-hidden hover:underline hover:cursor-pointer hover:text-white"
       >
         {{ task.title }}
@@ -25,7 +25,7 @@
         DESCRIPTION
       </h3>
       <p
-        @click="openEditTask"
+        @click="editTask"
         class="mt-2 font-bold text-white text-ellipsis overflow-hidden pt-3 py-2 hover:underline hover:cursor-pointer hover:text-white"
       >
         <em> {{ task.description }}</em>
@@ -179,11 +179,3 @@ const editTask = async () => {
   }
 }
 </style>
-
-<!-- 
-
-2. Data properties need here are the following: a boolean to store a false**Important variable, a string to store an error, a string to store the value of the task that the user can edit, an initial false boolean to hide the inputFIeld used to edit the new task detail or details[this is in reference of the task title and the task description].
-
-4. Function to handle the error with the data properties used to control the error and the the boolean controlling the boolean empty variable.
-
--->

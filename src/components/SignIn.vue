@@ -7,7 +7,6 @@
     />
 
     <!-- Login -->
-
     <form
       @submit.prevent="signIn"
       class="flex flex-col justify-evenly items-center w-5/12 shadow-lg"
@@ -26,22 +25,21 @@
           v-model="email"
           id="email"
         />
-
-        <input
-          class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
-          :type="passwordFieldType"
-          onpaste="return false"
-          placeholder="Password"
-          v-model="password"
-          id="password"
-          required
-        />
-        <!-- NOT SHOWING ON UI -->
-        <em
-          class="fa-light fa-eye"
-          @click.prevent="hidePassword = !hidePassword"
-        >
-        </em>
+        <div class="input-password-container">
+          <EyeIcon
+            class="eye-icon"
+            @click.prevent="hidePassword = !hidePassword"
+          />
+          <input
+            class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
+            :type="passwordFieldType"
+            onpaste="return false"
+            placeholder="Password"
+            v-model="password"
+            id="password"
+            required
+          />
+        </div>
       </div>
       <button
         class="orange hover:bg-orange-600 font-bold text-white px-3 py-1 rounded text-lg focus:outline-none shadow-lg"
@@ -49,7 +47,6 @@
       >
         SIGN IN
       </button>
-      <!-- <p class="text-sm mt-6 text-center"></p> -->
       <p class="text-center px-3 py-1 rounded">
         Don't have an account?
         <PersonalRouter :route="route" :buttonText="buttonText" />
@@ -63,6 +60,7 @@ import { ref, computed } from "vue";
 import PersonalRouter from "./PersonalRouter.vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
+import EyeIcon from "../components/EyeIcon.vue";
 
 // Reference useUserStore
 const userStore = useUserStore();
@@ -78,10 +76,10 @@ const password = ref("");
 const errorMsg = ref("");
 
 //Show hide password variables
+const hidePassword = ref(true);
 const passwordFieldType = computed(() =>
   hidePassword.value ? "password" : "text"
 );
-const hidePassword = ref(true);
 
 // Router to push user once SignedIn to the HomeView
 const redirect = useRouter();
@@ -164,6 +162,20 @@ const validateInputs = () => {
 <style scoped>
 .logo {
   width: 280px;
+}
+.input-password-container {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  width: 24px;
+  right: 15px;
+  bottom: 26px;
+  cursor: pointer;
+}
+.eye-icon:hover {
+  width: 26px;
 }
 .orange {
   background-color: #f97316 !important;
