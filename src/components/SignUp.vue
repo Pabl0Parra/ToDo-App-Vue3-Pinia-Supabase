@@ -85,6 +85,9 @@ import EyeIcon from "../components/EyeIcon.vue";
 const route = "/auth/login";
 const buttonText = "Login";
 
+// Router to push user once SignedUp to Log In
+const redirect = useRouter();
+
 // Input Fields
 const email = ref("");
 const password = ref("");
@@ -92,9 +95,6 @@ const confirmPassword = ref("");
 
 // Error Message
 const errorMsg = ref("");
-
-// Router to push user once SignedUp to Log In
-const redirect = useRouter();
 
 // function to SignUp user to supaBase with a timeOut() method for showing the error
 async function signUp() {
@@ -108,8 +108,11 @@ async function signUp() {
         Swal.fire({
           title: "Congratulations",
           text: `Your account was created`,
-          icon: "success",
+          imageUrl:
+            "https://res.cloudinary.com/dcwx2biey/image/upload/v1665693048/rocket_tb86im.gif",
           confirmButtonColor: "#f97316",
+          imageAlt: "Success",
+          imageWidth: "100px",
         });
       } catch (error) {
         Swal.fire({

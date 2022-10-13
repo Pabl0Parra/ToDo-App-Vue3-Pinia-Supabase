@@ -37,7 +37,6 @@
             placeholder="Password"
             v-model="password"
             id="password"
-            required
           />
         </div>
       </div>
@@ -120,13 +119,14 @@ const isValidEmail = (email) => {
 
 const validateInputs = () => {
   const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
 
   let check = true;
 
-  if (emailValue == "") {
+  if (emailValue == "" || passwordValue == "") {
     Swal.fire({
-      title: "Email is required",
-      text: `Please, enter an email`,
+      title: "Email & password are required",
+      text: `Please, enter an email & a password`,
       icon: "info",
       confirmButtonColor: "#f97316",
       showClass: {

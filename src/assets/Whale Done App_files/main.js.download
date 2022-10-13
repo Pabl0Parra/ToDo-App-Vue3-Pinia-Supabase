@@ -1,0 +1,30 @@
+import { createApp } from "/node_modules/.vite/deps/vue.js?v=f7e12814";
+import { createPinia } from "/node_modules/.vite/deps/pinia.js?v=f7e12814";
+import "/src/styles.css?t=1665699768670";
+import App from "/src/App.vue";
+import router from "/src/router/index.js?t=1665699768670";
+import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "/node_modules/.vite/deps/bootstrap.js?v=f7e12814";
+import VueSweetalert2 from "/node_modules/.vite/deps/vue-sweetalert2.js?v=f7e12814";
+import "/node_modules/sweetalert2/dist/sweetalert2.min.css";
+
+import { library } from "/node_modules/.vite/deps/@fortawesome_fontawesome-svg-core.js?v=f7e12814";
+import { faTrash } from "/node_modules/.vite/deps/@fortawesome_free-solid-svg-icons.js?v=f7e12814";
+import { faEdit } from "/node_modules/.vite/deps/@fortawesome_free-regular-svg-icons.js?v=f7e12814";
+import { faSquare } from "/node_modules/.vite/deps/@fortawesome_free-regular-svg-icons.js?v=f7e12814";
+import { faCheckSquare } from "/node_modules/.vite/deps/@fortawesome_free-regular-svg-icons.js?v=f7e12814";
+import { faStar } from "/node_modules/.vite/deps/@fortawesome_free-regular-svg-icons.js?v=f7e12814";
+import { faCalendar } from "/node_modules/.vite/deps/@fortawesome_free-regular-svg-icons.js?v=f7e12814";
+import { FontAwesomeIcon } from "/node_modules/.vite/deps/@fortawesome_vue-fontawesome.js?v=f7e12814";
+
+library.add(faCalendar, faCheckSquare, faEdit, faSquare, faStar, faTrash);
+
+const app = createApp(App);
+
+app.component("font-awesome-icon", FontAwesomeIcon);
+app.use(VueSweetalert2);
+window.Swal = app.config.globalProperties.$swal;
+app.use(createPinia());
+app.use(router);
+
+app.mount("#app");

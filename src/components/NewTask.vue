@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col justify-center">
+  <div class="flex flex-col justify-center h-100">
     <form
-      class="flex flex-col self-center items-center p-5 mb-2 text-center w-3/4"
+      class="flex flex-col self-center items-center p-5 mb-2 text-center w-3/4 gap-2"
       @submit.prevent="addTask"
     >
       <input
@@ -9,7 +9,7 @@
         placeholder="Add title here"
         id="title"
         v-model="title"
-        class="p-3 m-2 focus:outline-none rounded w-full text-center text-orange-500 shadow-lg"
+        class="title-input p-3 m-2 focus:outline-none rounded w-full text-center text-orange-500 shadow-lg"
       />
 
       <textarea
@@ -17,7 +17,7 @@
         placeholder="Add description here"
         id="description"
         v-model="description"
-        class="p-3 m-2 focus:outline-none rounded w-full text-center text-orange-500 shadow-lg"
+        class="desc-input p-3 m-2 focus:outline-none rounded w-full text-center text-orange-500 shadow-lg"
       />
       <button
         class="mt-6 p-3 px-6 self-start text-sm text-white font-bold bg-orange-500 duration-200 border-transparent hover:bg-blueDark hover:text-orange-500 rounded w-full shadow-lg"
@@ -52,8 +52,11 @@ const addTask = () => {
     Swal.fire({
       title: "Error",
       text: "Please enter a title and a description",
+      color: "#fff",
       icon: "warning",
+      iconColor: "#f97316",
       confirmButtonColor: "#f97316",
+      background: "#464c6d",
       showClass: {
         popup: "animate__animated animate__rotateInDownRight",
       },
@@ -72,5 +75,18 @@ const addTask = () => {
 <style scoped>
 button:hover {
   color: #f97316 !important;
+}
+
+.title-input,
+.desc-input {
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s; /* Animation */
+}
+.title-input:hover,
+.desc-input:hover {
+  transform: scale(1.3);
+  padding: 20px;
 }
 </style>

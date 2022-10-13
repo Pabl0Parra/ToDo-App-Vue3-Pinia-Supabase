@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg fixed top-0 z-50">
-    <div class="container-fluid border-2 border-solid border-white">
+    <div class="container-fluid border-bottom-2 border-solid border-white">
       <img
         class="logo"
         src="https://res.cloudinary.com/dcwx2biey/image/upload/v1665501348/logo-blue_phk5di.png"
