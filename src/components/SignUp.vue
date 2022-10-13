@@ -34,7 +34,7 @@
             >Password</label
           >
           <input
-            :type="passwordFieldType"
+            type="password"
             required
             class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
             id="password"
@@ -47,7 +47,7 @@
             >Confirm Password</label
           >
           <input
-            :type="passwordFieldType"
+            type="password"
             required
             class="shadow-md border w-full h-10 px-3 py-2 text-orange-500 focus:outline-none focus:border-orange-500 mb-3 rounded"
             id="confirmPassword"
@@ -79,6 +79,7 @@ import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import PersonalRouter from "./PersonalRouter.vue";
 import { useUserStore } from "../stores/user";
+import EyeIcon from "../components/EyeIcon.vue";
 
 // Route Variables
 const route = "/auth/login";
@@ -91,12 +92,6 @@ const confirmPassword = ref("");
 
 // Error Message
 const errorMsg = ref("");
-
-// Show hide passwords variables (both passwords)
-const passwordFieldType = computed(() =>
-  hidePassword.value ? "password" : "text"
-);
-const hidePassword = ref(true);
 
 // Router to push user once SignedUp to Log In
 const redirect = useRouter();
@@ -192,6 +187,19 @@ const validateInputs = () => {
   background-repeat: no-repeat;
   height: 100 vh;
   width: 100%;
+}
+.input-password-container {
+  position: relative;
+}
+.eye-icon {
+  position: absolute;
+  width: 24px;
+  right: 15px;
+  bottom: 26px;
+  cursor: pointer;
+}
+.eye-icon:hover {
+  width: 26px;
 }
 
 button {
