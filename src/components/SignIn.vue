@@ -2,7 +2,7 @@
   <div class="w-full h-screen flex">
     <img
       src="https://images.unsplash.com/photo-1540569876033-6e5d046a1d77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-      alt="background"
+      alt="background image"
       class="sign-img object-cover object-center h-screen w-7/12"
     />
 
@@ -98,7 +98,7 @@ const signIn = async () => {
         title: "Error",
         text: (errorMsg.value = `Error: ${error.message}`),
         icon: "warning",
-        background: "#464c6d",
+        iconColor: "#f97316",
         confirmButtonColor: "#f97316",
         showClass: {
           popup: "animate__animated animate__rotateInDownRight",

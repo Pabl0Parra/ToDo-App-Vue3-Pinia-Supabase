@@ -75,11 +75,10 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 import PersonalRouter from "./PersonalRouter.vue";
 import { useUserStore } from "../stores/user";
-import EyeIcon from "../components/EyeIcon.vue";
 
 // Route Variables
 const route = "/auth/login";
@@ -106,7 +105,7 @@ async function signUp() {
         redirect.push({ path: "/auth/login" });
         // success msg sweetalert2
         Swal.fire({
-          title: "Congratulations",
+          title: "Congratulations ",
           text: `Your account was created`,
           imageUrl:
             "https://res.cloudinary.com/dcwx2biey/image/upload/v1665693048/rocket_tb86im.gif",
@@ -120,7 +119,6 @@ async function signUp() {
           text: (errorMsg.value = `Error: ${error.message}`),
           icon: "warning",
           confirmButtonColor: "#f97316",
-          background: "#464c6d",
         });
       }
       return;
@@ -131,7 +129,6 @@ async function signUp() {
       text: `Passwords do not match`,
       icon: "error",
       confirmButtonColor: "#f97316",
-      background: "#464c6d",
     });
   }
 }
@@ -153,8 +150,8 @@ const validateInputs = () => {
       title: "Error",
       text: `Email is required`,
       icon: "warning",
+      iconColor: "#f97316",
       confirmButtonColor: "#f97316",
-      background: "#464c6d",
       showClass: {
         popup: "animate__animated animate__zoomInDown",
       },
@@ -168,6 +165,7 @@ const validateInputs = () => {
       title: "Provide a valid email",
       text: `Enter something like john@gmail.com`,
       icon: "warning",
+      iconColor: "#f97316",
       confirmButtonColor: "#f97316",
       showClass: {
         popup: "animate__animated animate__zoomInUp",

@@ -111,6 +111,7 @@ const deleteTask = () => {
     cancelButtonText: "Cancel",
     confirmButtonColor: "#f97316",
     icon: "warning",
+    iconColor: "#f97316",
   }).then((result) => {
     if (result.isConfirmed) {
       emit("delete-task", props.task.id);
