@@ -53,7 +53,7 @@ const addTask = () => {
       title: "Error",
       text: "Please enter a title and a description",
       color: "#fff",
-      icon: "warning",
+      icon: "info",
       iconColor: "#f97316",
       confirmButtonColor: "#f97316",
       background: "#464c6d",

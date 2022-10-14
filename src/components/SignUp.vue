@@ -120,6 +120,7 @@ async function signUp() {
           text: (errorMsg.value = `Error: ${error.message}`),
           icon: "warning",
           confirmButtonColor: "#f97316",
+          background: "#464c6d",
         });
       }
       return;
@@ -130,6 +131,7 @@ async function signUp() {
       text: `Passwords do not match`,
       icon: "error",
       confirmButtonColor: "#f97316",
+      background: "#464c6d",
     });
   }
 }
@@ -152,6 +154,7 @@ const validateInputs = () => {
       text: `Email is required`,
       icon: "warning",
       confirmButtonColor: "#f97316",
+      background: "#464c6d",
       showClass: {
         popup: "animate__animated animate__zoomInDown",
       },

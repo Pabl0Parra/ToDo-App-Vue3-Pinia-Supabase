@@ -101,8 +101,17 @@ const deleteTask = () => {
       Swal.fire({
         title: "Poof!",
         text: "Your file has been deleted!",
-        icon: "success",
+        imageUrl:
+          "https://res.cloudinary.com/dcwx2biey/image/upload/v1665697288/185-trash-bin-flat_yvdu2t.gif",
+        imageWidth: "80px",
         confirmButtonColor: "#f97316",
+        showClass: {
+          popup: "animate__animated animate__bounceInLeft",
+        },
+
+        hideClass: {
+          popup: "animate__animated animate__bounceOutRight",
+        },
       });
     }
   });
@@ -111,7 +120,9 @@ const deleteTask = () => {
 // Function to edit the task information that you decided that the user can edit. This function's body takes in a conditional that first checks if the value of the task [either title and description or just title] is empty which if true it runs the function used to handle the error on hint4. Else, the conditional sets the first mentioned boolean data property on hint2 back to its inital boolean value to hide the error message and repeat the same for the data property mentioned 4th on hint2; a constant that stores an object that holds the oldValue from the prop item and the value of the task coming from the data property mentioned 3rd on hint2; a custom event emit() that takes 2 parameters a name for the custom event and the value from the object used on this part of the conditional and lastly this part of the conditional sets the value of input field to an empty string to clear it from the ui.
 const editTask = async () => {
   const { value: formValues } = await Swal.fire({
-    icon: "info",
+    imageUrl:
+      "https://res.cloudinary.com/dcwx2biey/image/upload/v1665730319/245-edit-document-flat_1_jalpw3.gif",
+    imageWidth: "100px",
     showCancelButton: true,
     confirmButtonText: "Update Task",
     cancelButtonText: "Cancel",
@@ -141,6 +152,7 @@ const editTask = async () => {
       text: "Please try again, fields cannot be empty",
       icon: "error",
       confirmButtonColor: "#f97316",
+      background: "#464c6d",
       showClass: {
         popup: "animate__animated animate__rubberBand",
       },
