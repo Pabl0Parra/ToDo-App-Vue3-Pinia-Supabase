@@ -98,6 +98,7 @@ const signIn = async () => {
         title: "Error",
         text: (errorMsg.value = `Error: ${error.message}`),
         icon: "warning",
+        background: "#464c6d",
         confirmButtonColor: "#f97316",
         showClass: {
           popup: "animate__animated animate__rotateInDownRight",
@@ -128,6 +129,7 @@ const validateInputs = () => {
       title: "Email & password are required",
       text: `Please, enter an email & a password`,
       icon: "info",
+      iconColor: "#f97316",
       confirmButtonColor: "#f97316",
       showClass: {
         popup: "animate__animated animate__zoomInDown",
