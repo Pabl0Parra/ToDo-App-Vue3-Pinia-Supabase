@@ -14,12 +14,12 @@
       >
         TITLE
       </h5>
-      <h5
+      <h4
         @click="editTask"
         class="mt-2 mb-2 text-2xl font-bold tracking-tight text-white text-ellipsis overflow-hidden hover:underline hover:cursor-pointer hover:text-white"
       >
         {{ task.title }}
-      </h5>
+      </h4>
       <hr class="text-orange-500" />
       <h3 class="mt-2 font-bold text-2xl text-orange-500 overflow-hidden">
         DESCRIPTION
@@ -34,8 +34,17 @@
 
       <div class="show-tools-mobile inline-flex gap-5 mt-3">
         <button
-          class="bg-orange-500 hover:bg-yellow-400 font-bold text-white hover-text py-2 px-4 rounded"
+          id="Button"
+          class="btn-disabled bg-orange-500 hover:bg-yellow-400 font-bold text-white hover-text py-2 px-4 rounded"
           @click="addToggle"
+          v-if="!isCompleted"
+        >
+          DONE
+        </button>
+        <button
+          id="Button"
+          class="opacity-50 cursor-not-allowed bg-orange-500 font-bold text-white py-2 px-4 rounded"
+          v-if="isCompleted"
         >
           DONE
         </button>
@@ -46,8 +55,15 @@
           DELETE
         </button>
         <button
-          class="bg-orange-500 hover:bg-yellow-400 font-bold text-white hover-text py-2 px-4 rounded"
+          class="btn-disabled bg-orange-500 hover:bg-yellow-400 font-bold text-white hover-text py-2 px-4 rounded"
           @click="editTask"
+          v-if="!isCompleted"
+        >
+          EDIT
+        </button>
+        <button
+          class="opacity-50 cursor-not-allowed bg-orange-500 font-bold text-white py-2 px-4 rounded"
+          v-if="isCompleted"
         >
           EDIT
         </button>
@@ -176,8 +192,18 @@ const editTask = async () => {
 
 <style scoped>
 .completed_style {
-  background: rgb(27, 190, 30);
+  background: rgb(66, 76, 167);
+}
+.completed_style > p {
   text-decoration: line-through;
+  cursor: none;
+}
+.completed_style > h4 {
+  text-decoration: line-through;
+  cursor: none;
+}
+.cursor-not-allowed {
+  cursor: none;
 }
 .hover-text:hover {
   color: #272c48 !important;
