@@ -25,9 +25,6 @@
         ADD TASK
       </button>
     </form>
-    <div v-if="errorWhitoutTitle" class="text-red-500 mb-5 pb-5">
-      {{ errorMessage }}
-    </div>
   </div>
 </template>
 

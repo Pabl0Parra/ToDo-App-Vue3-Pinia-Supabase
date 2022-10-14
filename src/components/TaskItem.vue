@@ -62,7 +62,7 @@
           EDIT
         </button>
         <button
-          class="opacity-50 cursor-not-allowed bg-orange-500 font-bold text-white py-2 px-4 rounded"
+          class="opacity-50 cursor-not-allowed bg-orange-500 font-bold text-transparent py-2 px-4 rounded"
           v-if="isCompleted"
         >
           EDIT
