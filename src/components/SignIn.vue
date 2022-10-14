@@ -184,7 +184,9 @@ const validateInputs = () => {
 .orange:hover {
   background-color: #e36206 !important;
 }
-
+PersonalRouter {
+  color: blue !important;
+}
 @media screen and (max-width: 600px) {
   .sign-img {
     display: none;
