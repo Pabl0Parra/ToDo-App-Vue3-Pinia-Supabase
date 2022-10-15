@@ -71,4 +71,6 @@
 
 ### :unlock: WHAT AM I GOING TO DO TODAY?
 
-<p>Today I´m going to fix some small issues and start working on version 2 of the project, which will include sweetalert2, dark mode and who knows!</p>
+<p>Today I´m going to fix some small issues and start working on version 2 of the project, which will include sweetalert2 for error display and some other things, dark mode and who knows!</p>
+
+Live project: [Whale Done App](https:\2-do.vercel.app)
