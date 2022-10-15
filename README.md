@@ -2,7 +2,7 @@
 
 ## :closed_lock_with_key: Task List
 
-1. Basic Setup
+1. ~~Basic Setup~~
 2. ~~Functionalities~~
 
 - ~~Authentication~~ (~~sign up~~, ~~sign in~~, ~~sign out~~)
