@@ -13,7 +13,7 @@
 - ~~Delete existing tasks~~
 - ~~A store and a database that your app can call data from~~
 
-3. Styling
+3. ~~Styling~~
 
 ## :calendar: 04-10-2022
 
