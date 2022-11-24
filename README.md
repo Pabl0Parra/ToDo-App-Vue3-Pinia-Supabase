@@ -65,7 +65,7 @@
   
   - ~~Fix NavBar.~~
   
-  - Deploy app in Vercel.
+  - ~~Deploy app in Vercel.~~
  ---
  ## :calendar: 07-10-2022
 
